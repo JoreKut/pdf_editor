@@ -1,29 +1,30 @@
-import numpy as np
-import cv2 as cv
+from PIL import Image
+from PIL import ImageDraw
+from rect_getter import *
+from SETTING import *
 
-hsv_min = np.array((0, 0, 0), np.uint8)
-hsv_max = np.array((155, 55, 55), np.uint8)
+def write_letter(image_draw_object : ImageDraw.Draw, rect, character: chr):
+    coords = (rect[0][0] - rect[1][0]/4, rect[0][1] - rect[1][1]/2)
+    image_draw_object.text(coords, character, font=file_font, fill=(30,30,30))
 
 
 if __name__ == '__main__':
-    file_path = "images/uvedomlenie_prib-1.png"  # имя файла, который будем анализировать
-    img = cv.imread(file_path)
-    hsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)  # меняем цветовую модель с BGR на HSV
-    thresh = cv.inRange(hsv, hsv_min, hsv_max)  # применяем цветовой фильтр
-    contours0, hierarchy = cv.findContours(thresh.copy(), cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
 
-    # перебираем все найденные контуры в цикле
-    for cnt in contours0:
-        rect = cv.minAreaRect(cnt)  # пытаемся вписать прямоугольник
+    # Open an Image
+    img_name = 'uvedomlenie_prib-1.png'
+    img_path = f'pattern/{img_name}'
+    rects = get_rects(img_path)
+    print(rects[-1], rects[-2])
 
-        if  min(rect[1][0], rect[1][1]) < 20:
-            continue
-        print(rect)
-        box = cv.boxPoints(rect)  # поиск четырех вершин прямоугольника
-        box = np.int0(box)  # округление координат
-        cv.drawContours(img, [box], 0, (0, 255, 0), 2)  # рисуем прямоугольник
+    img = Image.open(img_path)
 
-    cv.imshow('contours', img)  # вывод обработанного кадра в окно
-
-    cv.waitKey()
-    cv.destroyAllWindows()
+    # Call draw Method to add 2D graphics in an image
+    I1 = ImageDraw.Draw(img)
+    
+    # Add Text to an image
+    last_name = "Ахаха, это работает!!!"
+    for i, letter in enumerate(last_name):
+        print(i)
+        write_letter(I1, rects[-i-1], letter)
+    # Save the edited image
+    img.save(f"result/reult-{img_name}")
