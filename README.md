@@ -3,23 +3,49 @@ University project.
 
 ## This service fills in the fields in the pdf file
 
-    FRONTEND - HTML + CSS
-    BACKEND  - Python Flask
+FRONTEND - HTML + CSS
 
-    The client has a specific pdf document to fill out.
-    He fills out the form on the web page. Then form will be sent as POST request on the web server. 
+BACKEND  - Python Flask
 
-    Python Flask implement the web server role.
+The client has a specific pdf document to fill out.
+He fills out the form on the web page. Then form will be sent as POST request on the web server. 
+
+Python Flask implement the web server role.
 
 ## Handle process
 
-    Web form send json with 64 parametrs. 
-    The pdf file consist of these parametrs.
+Web form send the json with 64 parameters. 
+The pdf file consist of these parameters.
 
 ## Filling process
 
-### I have an empty pdf document to fill out. 
+I have an empty pdf document to fill out. 
+To detect rectangles for letters I use __OpenCV__ library for each page of document.
+Then when I have all rectangles coordinates I match every json field to rectangles set
 
-### To detect rects for letters I use __OpenCV__ library for each page of document.
+I have `CellWriter` class which helps me with cells editing. It looks like Turing machine.
+I manipulate my document page with `write_text()` and `write_text_in_cell()` 
+```python
+    write_text(text: str, start: int, end: int) -> None
+```
+* __text__ - text that we want to print in cells
+* __start__ - the first cell to write
+* __end__ - the last cell to write
 
-### Then when I have all rects coordinates I match every json field to rects set
+## Example
+
+![example1](screenshot/example1.jpg)
+
+>In this case 
+> * to fill in firstname we use ```write_text("firstname", 0, 26)``` 
+> * to fill in lastname we use ```write_text("lastname", 27, 53)``` 
+> * to fill in patronymic we use ```write_text("patronymic", 54, 77)```
+
+```python
+    write_text_in_cell(text: str, cell_index: int) -> None
+```
+This method perform a similar task. But there is only one cell to input.
+
+---
+
+#### These are the two main methods on which the entire program is based.
