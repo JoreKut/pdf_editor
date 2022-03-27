@@ -1,10 +1,22 @@
-import PIL.Image
-import PIL.ImageDraw
-
-import util.SETTING
 import util.date_parser as date_parser
-import util.rect_getter
 from util.cell_writer import CellWritter
+from PIL import Image
+
+def merge_images_into_pdf():
+
+    image_1 = Image.open(r'../result/celled-1.png')
+    image_2 = Image.open(r'../result/celled-2.png')
+    image_3 = Image.open(r'../result/celled-3.png')
+    image_4 = Image.open(r'../result/celled-4.png')
+
+    im_1 = image_1.convert('RGB')
+    im_2 = image_2.convert('RGB')
+    im_3 = image_3.convert('RGB')
+    im_4 = image_4.convert('RGB')
+
+    image_list = [im_2, im_3, im_4]
+
+    im_1.save(r'../result/result.pdf', save_all=True, append_images=image_list)
 
 
 def make_pdf(data: dict):
@@ -275,3 +287,5 @@ def make_pdf(data: dict):
     page2.save()
     page3.save()
     page4.save()
+
+    merge_images_into_pdf()
