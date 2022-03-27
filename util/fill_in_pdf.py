@@ -275,38 +275,3 @@ def make_pdf(data: dict):
     page2.save()
     page3.save()
     page4.save()
-
-    return True
-
-def write_letter( draw_object, cell, character: chr):
-        # cell: ( (x0,y0), (w,h), angle )
-        x_position = cell[0][0] + 10
-        y_position = cell[0][1] - 5
-
-        cell_width = max(cell[1][1], cell[1][0])
-        cell_height = min(cell[1][1], cell[1][0])
-
-        coordinates = (x_position - cell_width/2, y_position - cell_height/4)
-
-        draw_object.text(coordinates, character, font=util.SETTING.file_font, fill=(30, 30, 30))
-
-if __name__ == '__main__':
-
-    img_name = f'1.png'
-    img_path = f'../pattern/{img_name}'
-
-    rects = util.rect_getter.get_rects(img_path)
-    print(type(rects))
-    rects.reverse()
-    img = PIL.Image.open(img_path)
-
-    # Call draw Method to add 2D graphics in an image
-    I1 = PIL.ImageDraw.Draw(img)
-
-    # Add Text to an image
-    rects.reverse()
-    for i, rect in enumerate(rects):
-        write_letter(I1, rect, str(i))
-
-    # Save the edited image
-    img.save(f"../result/numeric-{img_name}")
