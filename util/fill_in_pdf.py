@@ -1,30 +1,312 @@
-from PIL import Image
-from PIL import ImageDraw
-from rect_getter import *
-from SETTING import *
+import PIL.Image
+import PIL.ImageDraw
 
-def write_letter(image_draw_object : ImageDraw.Draw, rect, character: chr):
-    coords = (rect[0][0] - rect[1][0]/4, rect[0][1] - rect[1][1]/2)
-    image_draw_object.text(coords, character, font=file_font, fill=(30,30,30))
+import util.SETTING
+import util.date_parser as date_parser
+import util.rect_getter
+from util.cell_writer import CellWritter
 
+
+def make_pdf(data: dict):
+    
+    img_name_1 = '1.png'
+    img_name_2 = '2.png'
+    img_name_3 = '3.png'
+    img_name_4 = '4.png'
+    
+    page1 = CellWritter(img_name_1)
+    page2 = CellWritter(img_name_2)
+    page3 = CellWritter(img_name_3)
+    page4 = CellWritter(img_name_4)
+
+    ''' PAGE_1  '''
+
+    page1.write_text(data["name_z[1]"], 0, 26)
+    page1.write_text(data["name_z[2]"], 27, 53)
+    page1.write_text(data["name_z[3]"], 54, 77)
+    page1.write_text(data["name_z[4]"], 78, 102)
+
+    # name_z[5] - число
+    date = date_parser.parse(data["name_z[5]"])
+    page1.write_text(date, 103, 110)
+
+    gender = data["name_z[6]"]
+    page1.write_text_in_cell('V', 110+int(gender))
+
+    # Место рождения
+    page1.write_text(data["name_z[7]"], 113, 184)
+    # Вид документа
+    page1.write_text(data["name_z[8]"], 185, 194)
+    # Серия
+    page1.write_text(data["name_z[9]"], 195, 198)
+    # Номер
+    page1.write_text(data["name_z[10]"], 199, 209)
+
+    # Дата выдачи
+    start_date = date_parser.parse(data["name_z[11]"])
+    # Действует до
+    end_date = date_parser.parse(data["name_z[12]"])
+    page1.write_text(start_date+end_date, 210, 225)
+
+    # Вид документа на пребыванеие в РФ
+    doc_type = data["name_z[13]"]
+    if doc_type != "4":
+        page1.write_text_in_cell('V', 225 + int(doc_type))
+
+    # серия
+    page1.write_text(data["name_z[14]"], 229, 232)
+    # Номер
+    page1.write_text(data["name_z[15]"], 233, 247)
+
+    # Дата выдачи
+    start_date = date_parser.parse(data["name_z[16]"])
+    # Срок действия до
+    end_date = date_parser.parse(data["name_z[17]"])
+
+    page1.write_text(start_date + end_date, 248, 263)
+
+    # Цель визита
+    purpose_val = data["name_z[18]"]
+    purpose_cell = 263 + int(purpose_val)
+    page1.write_text('V', purpose_cell, purpose_cell)
+
+    # Телефон
+    phone_number = data["name_z[19]"]
+    page1.write_text(phone_number, 273, 282)
+
+    # Профессия
+    profession = data["name_z[20]"]
+    page1.write_text(profession, 283, 308)
+
+    # Дата въезда
+    start_date = date_parser.parse(data["name_z[21]"])
+    # Пребывание ДО
+    end_date = date_parser.parse(data["name_z[22]"])
+    period = start_date+end_date
+    page1.write_text(period, 309, 324)
+
+    # Миграционная карта
+
+    # Серия
+    page1.write_text(data["name_z[23]"], 325, 328)
+    # Номер
+    page1.write_text(data["name_z[24]"], 329, 339)
+    # Сведения о представителях
+    page1.write_text(data["name_z[25]"], 340, 414)
+
+    ''' PAGE_2  '''
+
+    # Адрес пребывания
+    page2.write_text(data["name_z[26]"], 0, 101)
+
+    # Место пребывания
+
+    # Область, край, ...
+    page2.write_text(data["name_z[27]"], 102, 151)
+    # Район
+    page2.write_text(data["name_z[28]"], 152, 176)
+    # Город
+    page2.write_text(data["name_z[29]"], 177, 200)
+
+    # Улица
+    page2.write_text(data["name_z[30]"], 201, 225)
+
+    # Дом, участок, владение
+    page2.write_text_in_cell(data["name_z[31]"], 226)
+    # Номер дома
+    page2.write_text(data["name_z[32]"], 227, 234)
+    # Корпус дома
+    page2.write_text(data["name_z[33]"], 235, 239)
+    # Строение дома
+    page2.write_text(data["name_z[34]"], 240, 243)
+
+    # Квартира
+    page2.write_text_in_cell(data["name_z[35]"], 244)
+    # Номер квартиры
+    page2.write_text(data["name_z[36]"], 245, 248)
+
+    # Место пребывания
+    place_val = data["name_z[37]"]
+    page2.write_text_in_cell("V", 248+int(place_val))
+
+    # Место ФАКТИЧЕСКОГО нахождения
+
+    # Область, край, ...
+    page2.write_text(data["name_z[39]"], 252, 299)
+    # Район
+    page2.write_text(data["name_z[40]"], 300, 324)
+    # Город
+    page2.write_text(data["name_z[41]"], 325, 346)
+
+    # Кадастровый номер
+    page2.write_text(data["name_z[42]"], 347, 390)
+    # Реквизиты
+    page2.write_text(data["name_z[43]"], 391, 453)
+
+    ''' PAGE_3  '''
+
+    # Организация/ физ лицо
+    if data["name_z[44]"] == "1":
+        page3.write_text_in_cell("V", 0)
+    elif data["name_z[44]"] == "2":
+        page3.write_text_in_cell("V", 1)
+
+    # Фамилия
+    page3.write_text(data["name_z[45]"], 2, 28)
+    # Имя
+    page3.write_text(data["name_z[46]"], 29, 55)
+    # Отчество
+    page3.write_text(data["name_z[47]"], 56, 77)
+
+    # Вид документа
+    page3.write_text(data["name_z[48]"], 78, 88)
+    # Серия
+    page3.write_text(data["name_z[49]"], 89, 92)
+    # Номер
+    page3.write_text(data["name_z[50]"], 93, 103)
+
+    # Дата выдачи
+    start_date = data["name_z[51]"]
+    # Действует до
+    end_date = data["name_z[52]"]
+    page3.write_text(start_date+end_date, 104, 119)
+
+    # Область, край, ...
+    page3.write_text(data["name_z[53]"], 120, 167)
+    # Район
+    page3.write_text(data["name_z[54]"], 168, 192)
+    # Город
+    page3.write_text(data["name_z[55]"], 193, 215)
+
+    # Улица
+    page3.write_text(data["name_z[56]"], 216, 240)
+    # Номер дома
+    page3.write_text(data["name_z[57]"], 241, 244)
+    # Корпус дома
+    page3.write_text(data["name_z[58]"], 245, 249)
+    # Строение дома
+    page3.write_text(data["name_z[59]"], 250, 253)
+    # Квартира
+    page3.write_text(data["name_z[60]"], 254, 257)
+
+    # Фамилия
+    page3.write_text(data["name_z[1]"], 258, 284)
+    # Имя
+    page3.write_text(data["name_z[2]"], 285, 311)
+    # Отчество
+    page3.write_text(data["name_z[3]"], 312, 333)
+    # Гражданство
+    page3.write_text(data["name_z[4]"], 334, 359)
+
+    # Дата рождения
+    date = date_parser.parse(data["name_z[5]"])
+    page3.write_text(date, 360, 367)
+
+    # Пол
+    gender = data["name_z[6]"]
+    page3.write_text_in_cell('V', 367 + int(gender))
+
+    # Место рождения
+    page3.write_text(data["name_z[7]"], 370, 441)
+    # Вид документа
+    page3.write_text(data["name_z[8]"], 442, 452)
+    # Серия
+    page3.write_text(data["name_z[9]"], 453, 456)
+    # Номер
+    page3.write_text(data["name_z[10]"], 457, 487)
+
+    # Дата выдачи
+    start_date = date_parser.parse(data["name_z[11]"])
+    # Действует до
+    end_date = date_parser.parse(data["name_z[12]"])
+    page3.write_text(start_date + end_date, 468, 483)
+
+    # Место пребывания
+
+    # Область, край, ...
+    page3.write_text(data["name_z[27]"], 484, 531)
+    # Район
+    page3.write_text(data["name_z[28]"], 532, 556)
+    # Город
+    page3.write_text(data["name_z[29]"], 557, 580)
+
+    # Улица
+    page3.write_text(data["name_z[30]"], 581, 605)
+    # Дом, участок, владение
+    page3.write_text_in_cell(data["name_z[31]"], 606)
+    # Номер дома
+    page3.write_text(data["name_z[32]"], 607, 614)
+    # Корпус дома
+    page3.write_text(data["name_z[33]"], 615, 619)
+    # Строение дома
+    page3.write_text(data["name_z[34]"], 620, 623)
+
+    # Квартира
+    page3.write_text_in_cell(data["name_z[35]"], 624)
+    # Номер квартиры
+    page3.write_text(data["name_z[36]"], 625, 628)
+
+    end_date = date_parser.parse(data["name_z[22]"])
+    page3.write_text(end_date, 629, 636)
+
+    ''' PAGE_4  '''
+    # Номер принимающей стороны
+    page4.write_text(data["name_z[61]"], 0, 10)
+    # Наименование организации
+    page4.write_text(data["name_z[62]"], 11, 52)
+    # ИНН
+    page4.write_text(data["name_z[63]"], 53, 63)
+    # Адрес организации
+    page4.write_text(data["name_z[64]"], 64, 147)
+
+    # Фамилия
+    page4.write_text(data["name_z[45]"], 148, 174)
+    # Имя
+    page4.write_text(data["name_z[46]"], 175, 201)
+    # Отчество
+    page4.write_text(data["name_z[47]"], 202, 225)
+
+    # Наименование организации
+    page4.write_text(data["name_z[62]"], 226, 267)
+    # ИНН
+    page4.write_text(data["name_z[63]"], 268, 278)
+
+    page1.save()
+    page2.save()
+    page3.save()
+    page4.save()
+
+    return True
+
+def write_letter( draw_object, cell, character: chr):
+        # cell: ( (x0,y0), (w,h), angle )
+        x_position = cell[0][0] + 10
+        y_position = cell[0][1] - 5
+
+        cell_width = max(cell[1][1], cell[1][0])
+        cell_height = min(cell[1][1], cell[1][0])
+
+        coordinates = (x_position - cell_width/2, y_position - cell_height/4)
+
+        draw_object.text(coordinates, character, font=util.SETTING.file_font, fill=(30, 30, 30))
 
 if __name__ == '__main__':
 
-    # Open an Image
-    img_name = 'uvedomlenie_prib-1.png'
-    img_path = f'pattern/{img_name}'
-    rects = get_rects(img_path)
-    print(rects[-1], rects[-2])
+    img_name = f'1.png'
+    img_path = f'../pattern/{img_name}'
 
-    img = Image.open(img_path)
+    rects = util.rect_getter.get_rects(img_path)
+    print(type(rects))
+    rects.reverse()
+    img = PIL.Image.open(img_path)
 
     # Call draw Method to add 2D graphics in an image
-    I1 = ImageDraw.Draw(img)
-    
+    I1 = PIL.ImageDraw.Draw(img)
+
     # Add Text to an image
-    last_name = "Ахаха, это работает!!!"
-    for i, letter in enumerate(last_name):
-        print(i)
-        write_letter(I1, rects[-i-1], letter)
+    rects.reverse()
+    for i, rect in enumerate(rects):
+        write_letter(I1, rect, str(i))
+
     # Save the edited image
-    img.save(f"result/reult-{img_name}")
+    img.save(f"../result/numeric-{img_name}")
