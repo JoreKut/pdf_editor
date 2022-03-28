@@ -37,8 +37,8 @@ I manipulate my document page with `write_text()` and `write_text_in_cell()`
 ![example1](screenshot/example1.jpg)
 
 >In this case 
-> * to fill in firstname we use ```write_text("firstname", 0, 26)``` 
-> * to fill in lastname we use ```write_text("lastname", 27, 53)``` 
+> * to fill in lastname we use ```write_text("lastname", 0, 26)``` 
+> * to fill in firstname we use ```write_text("firstname", 27, 53)``` 
 > * to fill in patronymic we use ```write_text("patronymic", 54, 77)```
 
 ```python
