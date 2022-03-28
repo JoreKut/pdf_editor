@@ -46,6 +46,9 @@ I manipulate my document page with `write_text()` and `write_text_in_cell()`
 ```
 This method perform a similar task. But there is only one cell to input.
 
----
+These are the two main methods on which the entire program is based.
 
-#### These are the two main methods on which the entire program is based.
+---
+## Manual
+> All you need to use is run `back/server.py` and next fill in `front/index.html` 
+> in your browser
