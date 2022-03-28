@@ -1,3 +1,4 @@
+import os.path
 from dbm import dumb
 from flask import Flask 
 from flask import request
@@ -13,4 +14,6 @@ def login():
     return data
 
 if __name__ == '__main__':
+    if not os.path.exists(('../result')):
+        os.mkdir('../result')
     app.run(debug=True)
