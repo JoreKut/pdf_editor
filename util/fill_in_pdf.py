@@ -4,10 +4,10 @@ from PIL import Image
 
 def merge_images_into_pdf():
 
-    image_1 = Image.open(r'../result/celled-1.png')
-    image_2 = Image.open(r'../result/celled-2.png')
-    image_3 = Image.open(r'../result/celled-3.png')
-    image_4 = Image.open(r'../result/celled-4.png')
+    image_1 = Image.open(r'../back/static/output/celled-1.png')
+    image_2 = Image.open(r'../back/static/output/celled-2.png')
+    image_3 = Image.open(r'../back/static/output/celled-3.png')
+    image_4 = Image.open(r'../back/static/output/celled-4.png')
 
     im_1 = image_1.convert('RGB')
     im_2 = image_2.convert('RGB')
@@ -16,7 +16,7 @@ def merge_images_into_pdf():
 
     image_list = [im_2, im_3, im_4]
 
-    im_1.save(r'../result/result.pdf', save_all=True, append_images=image_list)
+    im_1.save(r'../back/static/output/result.pdf', save_all=True, append_images=image_list)
 
 
 def make_pdf(data: dict):
@@ -43,8 +43,10 @@ def make_pdf(data: dict):
     page1.write_text(date, 103, 110)
 
     gender = data["name_z[6]"]
-    page1.write_text_in_cell('V', 110+int(gender))
-
+    try:
+        page1.write_text_in_cell('V', 110+int(gender))
+    except:
+        pass
     # Место рождения
     page1.write_text(data["name_z[7]"], 113, 184)
     # Вид документа
@@ -63,8 +65,10 @@ def make_pdf(data: dict):
     # Вид документа на пребыванеие в РФ
     doc_type = data["name_z[13]"]
     if doc_type != "4":
-        page1.write_text_in_cell('V', 225 + int(doc_type))
-
+        try:
+            page1.write_text_in_cell('V', 225 + int(doc_type))
+        except:
+            pass
     # серия
     page1.write_text(data["name_z[14]"], 229, 232)
     # Номер
@@ -79,9 +83,11 @@ def make_pdf(data: dict):
 
     # Цель визита
     purpose_val = data["name_z[18]"]
-    purpose_cell = 263 + int(purpose_val)
-    page1.write_text('V', purpose_cell, purpose_cell)
-
+    try:
+        purpose_cell = 263 + int(purpose_val)
+        page1.write_text('V', purpose_cell, purpose_cell)
+    except:
+        pass
     # Телефон
     phone_number = data["name_z[19]"]
     page1.write_text(phone_number, 273, 282)
@@ -139,8 +145,10 @@ def make_pdf(data: dict):
 
     # Место пребывания
     place_val = data["name_z[37]"]
-    page2.write_text_in_cell("V", 248+int(place_val))
-
+    try:
+        page2.write_text_in_cell("V", 248+int(place_val))
+    except:
+        pass
     # Место ФАКТИЧЕСКОГО нахождения
 
     # Область, край, ...
@@ -216,8 +224,10 @@ def make_pdf(data: dict):
 
     # Пол
     gender = data["name_z[6]"]
-    page3.write_text_in_cell('V', 367 + int(gender))
-
+    try:
+        page3.write_text_in_cell('V', 367 + int(gender))
+    except:
+        pass
     # Место рождения
     page3.write_text(data["name_z[7]"], 370, 441)
     # Вид документа

@@ -1,0 +1,149 @@
+A div.span_in_menu {
+  text-shadow: 0px 0px 1px #C75000;
+  text-decoration: underline;
+  color: #C75000;
+  text-decoration-style: double;
+  text-decoration-color: #B80000;
+
+  font-size: 12px;
+  font-weight: normal;
+}
+
+
+A:hover div.span_in_menu {
+  color: #d65600;
+  transition: .5s;
+}
+
+
+.td_hover {
+  display: inline-block;
+  background: #EBEBEB;
+  border-radius: 8px;
+  border-right: 2px solid #C75000;
+  margin-bottom: 10px;
+  width: 190px;
+}
+
+.td_hover:hover {
+  background: #DEDEDE;
+  border-right: 2px solid #33CC00;
+  transition: .5s;
+}
+
+
+.td_hover_now {
+  display: inline-block;
+  border-radius: 8px;
+  background: #DEDEDE;
+  border-right: 2px solid #33CC00;
+  margin-bottom: 10px;
+  width: 190px;
+
+}
+
+.macke_1_form_button_ypravlenia {
+  margin-top: 7px;
+  border-radius: 7px;
+  border-left: 20px solid #7A7A7A;
+  border-right: 10px solid #7A7A7A;
+
+  border-top: 4px solid #7A7A7A;
+  border-bottom: 4px solid #7A7A7A;
+
+  width: 620px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  cursor: pointer;
+  padding-left: 15px;
+  font-weight: bold;
+
+
+  background-color: #FAFAFA;
+  transition: .5s;
+}
+
+.macke_1_form_button_ypravlenia:hover {
+  border-left: 20px solid #C9C9C9;
+  background-color: #C9C9C9;
+}
+
+
+.macke_1_form_button_ypravlenia:active {
+  transition: 0.2s;
+  background-color: #75FFCF;
+  border-left: 20px solid #75FFCF;
+}
+
+.macke_1_form_button_ypravlenia_required_off {
+  border-radius: 7px;
+  border-left: 10px solid #357935;
+  border-right: 10px solid #357935;
+
+  border-top: 4px solid #357935;
+  border-bottom: 4px solid #357935;
+
+  width: 200px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  cursor: pointer;
+  padding-left: 15px;
+  font-weight: bold;
+
+
+  background-color: #D4ECD4;
+  transition: .5s;
+}
+
+.macke_1_form_button_ypravlenia_required_off:hover {
+  border-left: 10px solid #7CC57C;
+  border-right: 10px solid #7CC57C;
+  background-color: #7CC57C;
+}
+
+
+.macke_1_form_button_ypravlenia_required_off:active {
+  transition: 0.2s;
+  background-color: #75FFCF;
+  border-left: 10px solid #75FFCF;
+  border-right: 10px solid #75FFCF;
+}
+
+
+
+
+
+
+.macke_1_form_button_ypravlenia_required_on {
+  border-radius: 7px;
+  border-left: 10px solid #990000;
+  border-right: 10px solid #990000;
+
+  border-top: 4px solid #990000;
+  border-bottom: 4px solid #990000;
+
+  width: 200px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  cursor: pointer;
+  padding-left: 15px;
+  font-weight: bold;
+
+
+  background-color: #FFE5E5;
+  transition: .5s;
+}
+
+.macke_1_form_button_ypravlenia_required_on:hover {
+  border-left: 10px solid #FFB2B2;
+  border-right: 10px solid #FFB2B2;
+  background-color: #FFB2B2;
+}
+
+
+.macke_1_form_button_ypravlenia_required_on:active {
+  transition: 0.2s;
+  background-color: #75FFCF;
+  border-left: 10px solid #75FFCF;
+  border-right: 10px solid #75FFCF;
+}

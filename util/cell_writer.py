@@ -1,5 +1,4 @@
-from PIL import ImageDraw 
-from PIL import Image
+from PIL import ImageDraw, Image
 from util.SETTING import *
 import util.rect_getter as rect_getter
 
@@ -34,6 +33,5 @@ class CellWritter:
         self.write_letter(self.cells[cell_index], text)
 
     def save(self):
-        self.img.save(f"../result/celled-{self.img_name}")
+        self.img.save(f"../back/static/output/celled-{self.img_name}")
 
-    
