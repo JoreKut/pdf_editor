@@ -1,35 +1,22 @@
+import glob
+
 import util.date_parser as date_parser
 from util.cell_writer import CellWritter
-from PIL import Image
-
-def merge_images_into_pdf():
-
-    image_1 = Image.open(r'../back/static/output/celled-1.png')
-    image_2 = Image.open(r'../back/static/output/celled-2.png')
-    image_3 = Image.open(r'../back/static/output/celled-3.png')
-    image_4 = Image.open(r'../back/static/output/celled-4.png')
-
-    im_1 = image_1.convert('RGB')
-    im_2 = image_2.convert('RGB')
-    im_3 = image_3.convert('RGB')
-    im_4 = image_4.convert('RGB')
-
-    image_list = [im_2, im_3, im_4]
-
-    im_1.save(r'../back/static/output/result.pdf', save_all=True, append_images=image_list)
+import os
 
 
-def make_pdf(data: dict):
+def make_document_1_pdf(data: dict):
     
     img_name_1 = '1.png'
     img_name_2 = '2.png'
     img_name_3 = '3.png'
     img_name_4 = '4.png'
+    dir = '../pattern/uvedomlenie_o_pribitie'
     
-    page1 = CellWritter(img_name_1)
-    page2 = CellWritter(img_name_2)
-    page3 = CellWritter(img_name_3)
-    page4 = CellWritter(img_name_4)
+    page1 = CellWritter(img_name_1, dir)
+    page2 = CellWritter(img_name_2, dir)
+    page3 = CellWritter(img_name_3, dir)
+    page4 = CellWritter(img_name_4, dir)
 
     ''' PAGE_1  '''
 
@@ -293,9 +280,12 @@ def make_pdf(data: dict):
     # ИНН
     page4.write_text(data["name_z[63]"], 268, 278)
 
-    page1.save()
-    page2.save()
-    page3.save()
-    page4.save()
+    im_1 = page1.img.convert('RGB')
+    im_2 = page2.img.convert('RGB')
+    im_3 = page3.img.convert('RGB')
+    im_4 = page4.img.convert('RGB')
 
-    merge_images_into_pdf()
+    image_list = [im_2, im_3, im_4]
+    pdf_files = glob.glob('../back/static/output/*.pdf')
+    file_number = len(pdf_files)
+    im_1.save(fr'../back/static/output/uvedomlenie_o_pribitie_result_{file_number}.pdf', save_all=True, append_images=image_list)
