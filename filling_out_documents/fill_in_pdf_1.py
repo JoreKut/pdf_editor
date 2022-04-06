@@ -1,22 +1,20 @@
 import glob
-
 import util.date_parser as date_parser
 from util.cell_writer import CellWritter
-import os
+
 
 
 def make_document_1_pdf(data: dict):
     
-    img_name_1 = '1.png'
-    img_name_2 = '2.png'
-    img_name_3 = '3.png'
-    img_name_4 = '4.png'
-    dir = '../pattern/uvedomlenie_o_pribitie'
+    img_name_1 = '../pattern/uvedomlenie_o_pribitie/1.png'
+    img_name_2 = '../pattern/uvedomlenie_o_pribitie/2.png'
+    img_name_3 = '../pattern/uvedomlenie_o_pribitie/3.png'
+    img_name_4 = '../pattern/uvedomlenie_o_pribitie/4.png'
     
-    page1 = CellWritter(img_name_1, dir)
-    page2 = CellWritter(img_name_2, dir)
-    page3 = CellWritter(img_name_3, dir)
-    page4 = CellWritter(img_name_4, dir)
+    page1 = CellWritter(img_name_1)
+    page2 = CellWritter(img_name_2)
+    page3 = CellWritter(img_name_3)
+    page4 = CellWritter(img_name_4)
 
     ''' PAGE_1  '''
 
@@ -288,4 +286,7 @@ def make_document_1_pdf(data: dict):
     image_list = [im_2, im_3, im_4]
     pdf_files = glob.glob('../back/static/output/*.pdf')
     file_number = len(pdf_files)
-    im_1.save(fr'../back/static/output/uvedomlenie_o_pribitie_result_{file_number}.pdf', save_all=True, append_images=image_list)
+    name = rf'uvedomlenie_o_pribitie_result_{file_number}.pdf'
+    im_1.save(rf'../back/static/output/{name}', save_all=True, append_images=image_list)
+
+    return name

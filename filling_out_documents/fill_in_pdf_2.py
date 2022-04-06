@@ -26,7 +26,10 @@ def make_document_2_pdf(data: dict):
     image_list = [im_2]
     pdf_files = glob.glob('../back/static/output/*.pdf')
     file_number = len(pdf_files)
-    im_1.save(fr'../back/static/output/uvedomlenie_ubitie_result_{file_number}.pdf', save_all=True, append_images=image_list)
+    name = rf'uvedomlenie_ubitie_result_{file_number}.pdf'
+    im_1.save(rf'../back/static/output/{name}', save_all=True, append_images=image_list)
+
+    return name
 
 if __name__ == '__main__':
     make_document_2_pdf({})
