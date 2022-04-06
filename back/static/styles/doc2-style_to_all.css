@@ -1,0 +1,553 @@
+@charset "UTF-8";
+body {
+  margin: 5px;
+  /*font-family:Tahoma,Verdana,Arial;*/
+  font-family: Arial, Helvetica, Verdana;
+  font-size: 12px;
+}
+
+/*обычная ссылка*/
+body A,
+body A:link,
+body A:visited {
+  color: #0030c2;
+  text-decoration: underline;
+  transition: 0.5s;
+}
+
+body A:hover {
+  color: #d65600;
+  text-decoration: underline;
+  /*text-shadow: 0px 0px 1px #000000;  Параметры тени */
+}
+
+/*стили для форм (валидны или не валидны)*/
+.input_in_va:invalid {
+  background: #fdd; /* Красный цвет фона */
+}
+.input_in_va:valid {
+  background: #dfd; /* Зелёный цвет фона */
+}
+
+.empty_text {
+  background: #66ffff; /* Красный цвет фона */
+}
+
+.empty_text:valid {
+  background: #fdd; /* Красный цвет фона */
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #d65600;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #d65600;
+  text-decoration: none;
+}
+
+h3 {
+  font-size: 13px;
+  font-weight: normal;
+  color: #d65600;
+  text-decoration: none;
+}
+
+/*Картинка основного логотипа*/
+.logotip_img {
+  border: 0;
+  float: left;
+  vertical-align: middle;
+}
+
+/*текст справа от картинки*/
+.chapka_logo_text {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #d65600;
+  font-family: Tahoma, Verdana, Arial;
+
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.chapka_menu_linc,
+A.chapka_menu_linc,
+A.chapka_menu_linc:visited,
+A.chapka_menu_linc:link {
+  color: #000000;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+A.chapka_menu_linc:hover {
+  color: #993d00;
+}
+
+/*Делаем симпотичную кнопку Начало */
+
+.buttom_simp {
+  padding: 2px 30px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  border: solid 1px #db090a;
+  cursor: pointer;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.buttom_simp:hover {
+  background: #d4d4d4;
+  text-decoration: none;
+}
+.buttom_simp:disabled {
+  background: #d4d4d4;
+  border: solid 1px #d4d4d4;
+  text-decoration: none;
+}
+
+.grine_b {
+  background: #85e0a3;
+}
+
+.red_b {
+  background: #ffa8a8;
+}
+
+.orange_b {
+  background: #ffc994;
+}
+
+.gray_b {
+  background: #d4d4d4;
+}
+.pinc_b {
+  background: #ffc8fa;
+}
+
+.gray_b:hover {
+  background: #a3a3a3;
+}
+
+.fioletovaya_b_to_print {
+  background: #ff9147;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  color: #000000;
+  margin-top: 7px;
+  margin-bottom: 12px;
+  border: solid 1px #db090a;
+  text-decoration: none;
+}
+
+.fioletovaya_b_to_formnovalidate_print {
+  background: #ffa8a8;
+  text-decoration: none;
+}
+
+/*Делаем симпотичную кнопку Конец */
+
+/*Делаем симпотичную кнопку Начало 2*/
+.buttom_mini_red {
+  background: #ffa8a8;
+  padding: 2px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  border: solid 0, 5px #000000;
+  cursor: pointer;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  transition: 0.5s;
+  text-decoration: none;
+}
+.buttom_red:hover {
+  background: #d4d4d4;
+  text-decoration: none;
+}
+
+/*Делаем симпотичную кнопку Конец 2*/
+
+/*делаем кнопку с нашим логотипом НАЧАЛО*/
+.button_logo_all {
+  border: none;
+  border-width: 0px;
+  background: none;
+  padding: 5px;
+  border-radius: 10px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 4px 4px #a8ffcb, inset 0 0 4px 2px #b2b2b2;
+  transition: 0.5s;
+}
+
+.button_logo_all:hover {
+  box-shadow: 0 0 4px 4px #757575;
+  transition: 0.5s;
+}
+
+.button_logo_all:active {
+  color: #757575;
+  background-color: #d6d6d6;
+  box-shadow: 0 0 4px 4px #b2b2b2;
+  transition: 0.1s;
+}
+/*делаем кнопку с нашим логотипом Конец*/
+
+/*Делаем таблицу выделенную*/
+.table_pole {
+  background: #ffd4b8;
+  box-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+/*Делаем таблицу выделенную*/
+
+/*Делаем таблицу с рамками*/
+.table_pole_2 {
+  background: #ff6666;
+  color: #ffffff;
+  border-radius: 5%;
+  -moz-border-radius: 5%;
+  -webkit-border-radius: 5%;
+}
+/*Делаем таблицу с рамками*/
+
+/*делаем обычный текст кликабельным - меняющимся*/
+.text_to_click:hover {
+  color: #a34100;
+  transition: 0.5s;
+}
+
+/*снизу, справа, слева пунктирная линия у td*/
+.border_pynkt {
+  border-bottom: 1px dashed #d65600;
+  border-right: 1px dashed #d65600;
+  border-left: 1px dashed #d65600;
+}
+
+.border_pynkt_top_solid {
+  border-top: 1px solid #d65600;
+}
+.border_pynkt_bottom_solid {
+  border-bottom: 1px solid #d65600;
+}
+.border_pynkt_left_solid {
+  border-left: 1px solid #d65600;
+}
+.border_pynkt_right_solid {
+  border-right: 1px solid #d65600;
+}
+
+/*Радио кнопка + лейбл*/
+
+.radio_check + label {
+  border: solid 1px #db090a;
+  cursor: pointer;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  transition: 0.5s;
+  text-align: center;
+
+  background: #cfcfcf;
+  cursor: pointer;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.radio_check:checked + label {
+  background: #66ff66;
+}
+
+/*ячейки безцветные для ссылок*/
+.click_td_none,
+.click_td_none A,
+.click_td_none A:visited,
+.click_td_none A:link {
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.click_td_none:hover {
+  background-color: #ff7e29;
+}
+
+/*ячейки красные для ссылок*/
+.click_td_red,
+.click_td_red A,
+.click_td_red A:visited,
+.click_td_red A:link {
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.5s;
+  background-color: #ffa8a8;
+}
+.click_td_red:hover {
+  background-color: #ff7e29;
+}
+
+/*Переворот на 360 градусов*/
+.turn_360:hover {
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+
+  -moz-transform: rotate(360deg); /* Для Firefox */
+  -ms-transform: rotate(360deg); /* Для IE */
+  -webkit-transform: rotate(360deg); /* Для Safari, Chrome, iOS */
+  -o-transform: rotate(360deg); /* Для Opera */
+  transform: rotate(360deg);
+}
+
+/*Стиль карандаша (редактировать)*/
+.pan_red {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #424242;
+}
+.pan_red:hover {
+  color: #990000;
+  background: #ff9933;
+  border-radius: 5px;
+}
+
+.pan_red:active {
+  background: #00cc33;
+}
+
+/*Различные стили текста*/
+.red_bold_text {
+  color: #990000;
+  font-weight: bold;
+}
+
+.grine_bold_text {
+  color: #2f8e2f;
+  font-weight: bold;
+}
+
+.orang_ramka_text {
+  border-left: 2px solid #cc0000;
+  border-right: 2px solid #cc0000;
+
+  display: inline-block;
+  text-decoration: none;
+
+  background-color: #ff9147;
+  color: #000000;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-top: 0px;
+  font-weight: bold;
+  border-radius: 6px 6px 6px 6px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+/*Отмена нижнего подчёркивания*/
+A.no_text_decoration:visited,
+A.no_text_decoration:link,
+A.no_text_decoration:hover {
+  text-decoration: none;
+}
+
+/*Для увеличения картинки*/
+figure.vkl2 {
+  width: 600px;
+  background: white;
+  box-shadow: 0 3px 10px #ccc;
+  transition: all 0.7s ease;
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 0.7s ease;
+  -ms-transition: all 0.7s ease;
+  text-indent: 0px;
+  text-align: center;
+  padding: 5px;
+  z-index: 100;
+}
+
+figure.vkl2 img {
+  width: 100%;
+  padding: 0px;
+}
+
+figure.vkl2:hover {
+  box-shadow: 0 2px 3px #666;
+}
+
+figure.vkl2:focus {
+  -webkit-transform: scale(1.7);
+  -moz-transform: scale(1.7);
+  -o-transform: scale(1.7);
+  -ms-transform: scale(1.7);
+  box-shadow: 0 2px 3px #666;
+  position: relative;
+  left: 164px;
+}
+/*Для увеличения картинки*/
+
+.to_macke_big_img_js {
+  width: 590px;
+  margin-bottom: 14px;
+  transition: 0.5s;
+  box-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
+.to_macke_big_img_js:hover {
+  box-shadow: 0 1px 0 #1f1f1f, 0 2px 0 #1f1f1f, 0 3px 0 #1f1f1f, 0 4px 0 #1f1f1f,
+    0 5px 0 #1f1f1f, 0 6px 1px #1f1f1f, 0 0 5px #1f1f1f, 0 1px 3px #1f1f1f,
+    0 3px 5px #1f1f1f, 0 5px 10px #1f1f1f, 0 10px 10px #1f1f1f,
+    0 20px 20px #1f1f1f;
+  cursor: zoom-in;
+}
+
+.new_img_open_js {
+  position: fixed;
+  margin: 0 auto;
+  z-index: 5;
+  box-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gray_span_to_exit_js {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  opacity: 0.3;
+  background: #c4c4c4;
+  transition: 0.5s;
+  z-index: 4;
+}
+.gray_span_to_exit_js:hover {
+  background: #7a7a7a;
+  opacity: 0.6;
+}
+
+.buttom_to_remove_new_img_js {
+  z-index: 6;
+  position: fixed;
+  width: 25px;
+  height: 25px;
+  background: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  color: #660000;
+  text-align: center;
+  border: solid 2px #660000;
+  cursor: pointer;
+  border-radius: 75%;
+  -moz-border-radius: 75%;
+  -webkit-border-radius: 75%;
+  transition: 0.5s;
+}
+
+.buttom_to_remove_new_img_js:hover {
+  background: #660000;
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  border: solid 2px #000000;
+  cursor: pointer;
+  border-radius: 75%;
+  -moz-border-radius: 75%;
+  -webkit-border-radius: 75%;
+  transition: 0.5s;
+}
+
+/*для л.к. скрыть/раскрыть*/
+.to_close_or_open_style_1 {
+  font-size: 15px;
+  color: #000000;
+  white-space: nowrap;
+  width: 0px;
+  /*display: inline-block;*/
+  display: block;
+  height: auto;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.to_close_or_open_style_1:hover {
+  color: #d65600;
+  text-shadow: 0px 0px 1px #000000; /* Параметры тени */
+}
+
+.to_close_or_open_style_2 {
+  color: #006622;
+  font-weight: bold;
+}
+
+.to_sitemap_table_text {
+  font-size: 15px;
+}
+
+.to_sitemap_table_text:hover {
+  color: #a34100;
+}
+
+.to_sitemap_table_strelka {
+  font-weight: bold;
+}
+
+.to_sitemap_table_strelka:hover {
+  color: #c70000;
+}
+
+.button_mini_text_10 {
+  padding: 3px 3px;
+  font-size: 10px;
+  font-weight: normal;
+  color: #000000;
+  text-align: center;
+  border: solid 1px #9900ff;
+  cursor: pointer;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  transition: 0.5s;
+  background: #cc9966;
+  text-decoration: none;
+}
+.button_mini_text_10:hover {
+  background: #99ff66;
+}

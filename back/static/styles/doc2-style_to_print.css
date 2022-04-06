@@ -1,0 +1,120 @@
+@charset "UTF-8";
+@media print {
+  body {
+    margin: 0px;
+    font-family: Tahoma, Verdana, Arial;
+    font-size: 12px;
+  }
+
+  .break_print {
+    page-break-before: always;
+  }
+
+  .don_t_print {
+    display: none;
+  }
+  .print_size_6 {
+    font-size: 6px;
+  }
+  .print_size_7 {
+    font-size: 7px;
+  }
+  .print_size_8 {
+    font-size: 8px;
+  }
+  .print_size_9 {
+    font-size: 9px;
+  }
+  .print_size_10 {
+    font-size: 10px;
+  }
+  .print_size_11 {
+    font-size: 11px;
+  }
+  .print_size_12 {
+    font-size: 12px;
+  }
+  .print_size_13 {
+    font-size: 13px;
+  }
+  .print_size_14 {
+    font-size: 14px;
+  }
+  .print_size_15 {
+    font-size: 15px;
+  }
+  .print_size_16 {
+    font-size: 16px;
+  }
+  .print_size_17 {
+    font-size: 17px;
+  }
+  .print_size_18 {
+    font-size: 18px;
+  }
+  .print_size_19 {
+    font-size: 19px;
+  }
+  .print_size_20 {
+    font-size: 20px;
+  }
+
+  .print_vertical_align_top {
+    vertical-align: top;
+  }
+  .print_vertical_align_middle {
+    vertical-align: middle;
+  }
+  .print_vertical_align_bottom {
+    vertical-align: bottom;
+  }
+
+  .print_border_solid_1_black_top {
+    border-top: 1px solid #000000;
+  }
+  .print_border_solid_1_black_bottom {
+    border-bottom: 1px solid #000000;
+  }
+  .print_border_solid_1_black_left {
+    border-left: 1px solid #000000;
+  }
+  .print_border_solid_1_black_right {
+    border-right: 1px solid #000000;
+  }
+}
+.to_print_block {
+  font-size: 16px;
+  white-space: nowrap;
+  width: 100%;
+  display: table;
+  height: auto;
+  /*background: #C5FFA8;*/
+}
+
+.to_print_block > .float_right {
+  float: right;
+  width: auto;
+  height: auto;
+  /*background: #FFC5A8;*/
+  text-align: left;
+  display: inline-block;
+}
+
+.to_print_block > .float_left {
+  float: left;
+  width: auto;
+  height: auto;
+  /*background: #FFC5A8;*/
+  text-align: left;
+  display: inline-block;
+}
+
+.to_print_block > .text_centr {
+  text-align: center;
+}
+
+/*
+.to_print_block td{
+    background: #CCCCCC;
+}
+*/
