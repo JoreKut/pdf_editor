@@ -50,5 +50,5 @@ These are the two main methods on which the entire program is based.
 
 ---
 ## Manual
-> All you need to use is run `back/server.py` and next fill in `front/index.html` 
+> All you need to use is run `back/server.py` and next fill in `http://localhost:5000/` 
 > in your browser
