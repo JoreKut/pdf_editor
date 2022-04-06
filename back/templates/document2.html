@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<!-- saved from url=(0080)https://r6r.ru/index.php?Main_Name=blank_gen&b_name=uvedomlenie_prib&mod=avtomat -->
-<html>
+<html class=" ">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <title>Заполнение онлайн уведомления о прибытии иностранного гражданина 2022 г.</title>
+  <title>Заполнить онлайн уведомление об убытии иностранного гражданина из места пребывания.</title>
   <meta name="Description"
-    content="Заполнение онлайн бланка уведомления о прибытии иностранного гражданина в 2022 г. (приложение № 4 к приказу МВД РФ от 10.12.2020 № 856).">
+    content="Заполнить онлайн уведомление об убытии иностранного гражданина из места пребывания (приложение 1 к приказу МВД РФ от 14.09.2020 г. № 641).">
   <meta name="keywords"
-    content="заполнение онлайн уведомление прибытие иностранный гражданин 2022 приложение 4 приказ МВД 10.12.2020 856">
-  <link rel="stylesheet" href="../static/styles/style2.css">
+    content="заполнить онлайн уведомление убытие иностранный гражданин приложение 1 приказ МВД 14.09.2020 641">
+  <link rel="stylesheet" type="text/css" href="../static/styles/doc2-style_to_all.css">
+  <link rel="stylesheet" type="text/css" href="../static/styles/style_to_all_comment.css">
+  <link rel="stylesheet" type="text/css" href="../static/styles/style_to_print.css">
+
+  <link rel="stylesheet" href="../static/styles/doc2-styles.css">
+
+
   <script src="../static/scripts/jquery-3.2.1.min.js"></script>
-  <script charset="UTF-8"
-    src="../static/scripts/field_info.js"></script>
+  <script src="../static/scripts/doc2-togglings.js"></script>
+
   <script type="text/javascript">
     jQuery(document).ready(function ($) {
       $("#to_dell_placeholder").bind("click", to_dell_placeholder);
@@ -25,586 +30,257 @@
       }
     });
   </script>
-  <script type="text/javascript" src="../static/scripts/toggling.js">
-  </script>
   <script type="text/javascript">
     jQuery(document).ready(function ($) {
 
-      $("#str_13").bind("change", str_13);
 
-      function str_13() {
-        if ($("#str_13").val() != 1 && $("#str_13").val() != 2 && $("#str_13").val() != 3) {
-          $("#str_14").val("").change();
-          $("#str_15").val("").change();
-          $("#str_1_16").val("").change();
-          $("#str_2_16").val("").change();
+      //данные по организации
+      $("#str_31").bind("change", organizasia);
+
+      function organizasia() {
+
+
+        //если принимающая сторона - организация
+        if ($("#str_31").val() == 1) {
+          $("#div_organizasia_h3_title").css({ "display": "" });
+
+          $("#div_dok_organizasia").css({ "display": "" });
+
+        }
+        //если принимающая сторона - физ. лицо
+        else {
+          $("#div_organizasia_h3_title").css({ "display": "none" });
+          $("#div_dok_organizasia").css({ "display": "none" });
+
+
+          $("#str_22").val("").change();
+          $("#str_23").val("").change();
+          $("#str_24").val("").change();
+          $("#str_25").val("").change();
+          $("#str_26").val("").change();
+          $("#str_27").val("").change();
+          $("#str_28").val("").change();
+          $("#str_29").val("").change();
+          $("#str_30").val("").change();
         }
       }
+      organizasia();
+
+
+
+
+      //данные по сроку действия документа удостоверяющего личность
+      $("#str_20").bind("change", str_20);
+
+      function str_20() {
+
+
+        //если документ бессрочный
+        if ($("#str_20").val() == 1) {
+          $("#div_19").css({ "display": "none" });
+          $("#str_19").val("").removeAttr("required").change();
+        }
+        //если срок окончания есть
+        if ($("#str_20").val() == 2) {
+          $("#div_19").css({ "display": "" });
+          $("#str_19").attr("required", "required").change();
+        }
+        //не выбрано
+        if ($("#str_20").val() == 0) {
+          $("#div_19").css({ "display": "none" });
+          $("#str_19").val("").removeAttr("required").change();
+        }
+      }
+      str_20();
+
+
+
+
+
+
+
+      //данные по сроку действия документа дающему право действовать от имени организации
+      $("#str_30").bind("change", str_30);
+
+      function str_30() {
+
+
+        //если документ бессрочный
+        if ($("#str_30").val() == 1) {
+          $("#div_29").css({ "display": "none" });
+          $("#str_29").val("").removeAttr("required").change();
+        }
+        //если срок окончания есть
+        if ($("#str_30").val() == 2) {
+          $("#div_29").css({ "display": "" });
+          $("#str_29").attr("required", "required").change();
+        }
+        //не выбрано
+        if ($("#str_30").val() == 0) {
+          $("#div_29").css({ "display": "none" });
+          $("#str_29").val("").removeAttr("required").change();
+        }
+      }
+      str_30();
+
+
     });
   </script>
   <script type="text/javascript">
     jQuery(document).ready(function ($) {
 
-      $("#str_38").bind("change", str_38);
+      $("#str_31").bind("change", str_31);
 
-      function str_38() {
-        var str_38 = $(this).val();
-        if (str_38 == "2") {
-          $("#div_39").css({ "display": "" });
-          if ($("#str_39").attr("name")) if ($("#str_39").prev().val() == "required") $("#str_39").attr("required", "required").change();
-          if ($("#str_1_39").attr("name")) if ($("#str_1_39").prev().val() == "required") $("#str_1_39").attr("required", "required").change();
-          if ($("#str_2_39").attr("name")) if ($("#str_2_39").prev().val() == "required") $("#str_2_39").attr("required", "required").change();
+      function str_31() {
+        var str_31 = $(this).val();
+        if (!str_31) {
+          $("#div_22").css({ "display": "none" });
+          if ($("#str_22").attr("name")) $("#str_22").removeAttr("required");
+          if ($("#str_1_22").attr("name")) $("#str_1_22").removeAttr("required");
+          if ($("#str_2_22").attr("name")) $("#str_2_22").removeAttr("required");
 
-          $("#div_40").css({ "display": "" });
-          if ($("#str_40").attr("name")) if ($("#str_40").prev().val() == "required") $("#str_40").attr("required", "required").change();
-          if ($("#str_1_40").attr("name")) if ($("#str_1_40").prev().val() == "required") $("#str_1_40").attr("required", "required").change();
-          if ($("#str_2_40").attr("name")) if ($("#str_2_40").prev().val() == "required") $("#str_2_40").attr("required", "required").change();
+          $("#div_23").css({ "display": "none" });
+          if ($("#str_23").attr("name")) $("#str_23").removeAttr("required");
+          if ($("#str_1_23").attr("name")) $("#str_1_23").removeAttr("required");
+          if ($("#str_2_23").attr("name")) $("#str_2_23").removeAttr("required");
 
-          $("#div_41").css({ "display": "" });
-          if ($("#str_41").attr("name")) if ($("#str_41").prev().val() == "required") $("#str_41").attr("required", "required").change();
-          if ($("#str_1_41").attr("name")) if ($("#str_1_41").prev().val() == "required") $("#str_1_41").attr("required", "required").change();
-          if ($("#str_2_41").attr("name")) if ($("#str_2_41").prev().val() == "required") $("#str_2_41").attr("required", "required").change();
+          $("#div_24").css({ "display": "none" });
+          if ($("#str_24").attr("name")) $("#str_24").removeAttr("required");
+          if ($("#str_1_24").attr("name")) $("#str_1_24").removeAttr("required");
+          if ($("#str_2_24").attr("name")) $("#str_2_24").removeAttr("required");
 
-          $("#div_42").css({ "display": "" });
-          if ($("#str_42").attr("name")) if ($("#str_42").prev().val() == "required") $("#str_42").attr("required", "required").change();
-          if ($("#str_1_42").attr("name")) if ($("#str_1_42").prev().val() == "required") $("#str_1_42").attr("required", "required").change();
-          if ($("#str_2_42").attr("name")) if ($("#str_2_42").prev().val() == "required") $("#str_2_42").attr("required", "required").change();
+          $("#div_25").css({ "display": "none" });
+          if ($("#str_25").attr("name")) $("#str_25").removeAttr("required");
+          if ($("#str_1_25").attr("name")) $("#str_1_25").removeAttr("required");
+          if ($("#str_2_25").attr("name")) $("#str_2_25").removeAttr("required");
 
-          $("#div_43").css({ "display": "" });
-          if ($("#str_43").attr("name")) if ($("#str_43").prev().val() == "required") $("#str_43").attr("required", "required").change();
-          if ($("#str_1_43").attr("name")) if ($("#str_1_43").prev().val() == "required") $("#str_1_43").attr("required", "required").change();
-          if ($("#str_2_43").attr("name")) if ($("#str_2_43").prev().val() == "required") $("#str_2_43").attr("required", "required").change();
-        } if (!str_38) {
-          $("#div_39").css({ "display": "none" });
-          if ($("#str_39").attr("name")) $("#str_39").removeAttr("required");
-          if ($("#str_1_39").attr("name")) $("#str_1_39").removeAttr("required");
-          if ($("#str_2_39").attr("name")) $("#str_2_39").removeAttr("required");
+          $("#div_26").css({ "display": "none" });
+          if ($("#str_26").attr("name")) $("#str_26").removeAttr("required");
+          if ($("#str_1_26").attr("name")) $("#str_1_26").removeAttr("required");
+          if ($("#str_2_26").attr("name")) $("#str_2_26").removeAttr("required");
 
-          $("#div_40").css({ "display": "none" });
-          if ($("#str_40").attr("name")) $("#str_40").removeAttr("required");
-          if ($("#str_1_40").attr("name")) $("#str_1_40").removeAttr("required");
-          if ($("#str_2_40").attr("name")) $("#str_2_40").removeAttr("required");
+          $("#div_27").css({ "display": "none" });
+          if ($("#str_27").attr("name")) $("#str_27").removeAttr("required");
+          if ($("#str_1_27").attr("name")) $("#str_1_27").removeAttr("required");
+          if ($("#str_2_27").attr("name")) $("#str_2_27").removeAttr("required");
 
-          $("#div_41").css({ "display": "none" });
-          if ($("#str_41").attr("name")) $("#str_41").removeAttr("required");
-          if ($("#str_1_41").attr("name")) $("#str_1_41").removeAttr("required");
-          if ($("#str_2_41").attr("name")) $("#str_2_41").removeAttr("required");
+          $("#div_28").css({ "display": "none" });
+          if ($("#str_28").attr("name")) $("#str_28").removeAttr("required");
+          if ($("#str_1_28").attr("name")) $("#str_1_28").removeAttr("required");
+          if ($("#str_2_28").attr("name")) $("#str_2_28").removeAttr("required");
 
-          $("#div_42").css({ "display": "none" });
-          if ($("#str_42").attr("name")) $("#str_42").removeAttr("required");
-          if ($("#str_1_42").attr("name")) $("#str_1_42").removeAttr("required");
-          if ($("#str_2_42").attr("name")) $("#str_2_42").removeAttr("required");
+          $("#div_29").css({ "display": "none" });
+          if ($("#str_29").attr("name")) $("#str_29").removeAttr("required");
+          if ($("#str_1_29").attr("name")) $("#str_1_29").removeAttr("required");
+          if ($("#str_2_29").attr("name")) $("#str_2_29").removeAttr("required");
 
-          $("#div_43").css({ "display": "none" });
-          if ($("#str_43").attr("name")) $("#str_43").removeAttr("required");
-          if ($("#str_1_43").attr("name")) $("#str_1_43").removeAttr("required");
-          if ($("#str_2_43").attr("name")) $("#str_2_43").removeAttr("required");
-        } if (str_38 == "1") {
-          $("#div_39").css({ "display": "none" });
-          if ($("#str_39").attr("name")) $("#str_39").removeAttr("required");
-          if ($("#str_1_39").attr("name")) $("#str_1_39").removeAttr("required");
-          if ($("#str_2_39").attr("name")) $("#str_2_39").removeAttr("required");
+          $("#div_30").css({ "display": "none" });
+          if ($("#str_30").attr("name")) $("#str_30").removeAttr("required");
+          if ($("#str_1_30").attr("name")) $("#str_1_30").removeAttr("required");
+          if ($("#str_2_30").attr("name")) $("#str_2_30").removeAttr("required");
+        } if (str_31 == "1") {
+          $("#div_22").css({ "display": "" });
+          if ($("#str_22").attr("name")) if ($("#str_22").prev().val() == "required") $("#str_22").attr("required", "required").change();
+          if ($("#str_1_22").attr("name")) if ($("#str_1_22").prev().val() == "required") $("#str_1_22").attr("required", "required").change();
+          if ($("#str_2_22").attr("name")) if ($("#str_2_22").prev().val() == "required") $("#str_2_22").attr("required", "required").change();
 
-          $("#div_40").css({ "display": "none" });
-          if ($("#str_40").attr("name")) $("#str_40").removeAttr("required");
-          if ($("#str_1_40").attr("name")) $("#str_1_40").removeAttr("required");
-          if ($("#str_2_40").attr("name")) $("#str_2_40").removeAttr("required");
+          $("#div_23").css({ "display": "" });
+          if ($("#str_23").attr("name")) if ($("#str_23").prev().val() == "required") $("#str_23").attr("required", "required").change();
+          if ($("#str_1_23").attr("name")) if ($("#str_1_23").prev().val() == "required") $("#str_1_23").attr("required", "required").change();
+          if ($("#str_2_23").attr("name")) if ($("#str_2_23").prev().val() == "required") $("#str_2_23").attr("required", "required").change();
 
-          $("#div_41").css({ "display": "none" });
-          if ($("#str_41").attr("name")) $("#str_41").removeAttr("required");
-          if ($("#str_1_41").attr("name")) $("#str_1_41").removeAttr("required");
-          if ($("#str_2_41").attr("name")) $("#str_2_41").removeAttr("required");
+          $("#div_24").css({ "display": "" });
+          if ($("#str_24").attr("name")) if ($("#str_24").prev().val() == "required") $("#str_24").attr("required", "required").change();
+          if ($("#str_1_24").attr("name")) if ($("#str_1_24").prev().val() == "required") $("#str_1_24").attr("required", "required").change();
+          if ($("#str_2_24").attr("name")) if ($("#str_2_24").prev().val() == "required") $("#str_2_24").attr("required", "required").change();
 
-          $("#div_42").css({ "display": "none" });
-          if ($("#str_42").attr("name")) $("#str_42").removeAttr("required");
-          if ($("#str_1_42").attr("name")) $("#str_1_42").removeAttr("required");
-          if ($("#str_2_42").attr("name")) $("#str_2_42").removeAttr("required");
+          $("#div_25").css({ "display": "" });
+          if ($("#str_25").attr("name")) if ($("#str_25").prev().val() == "required") $("#str_25").attr("required", "required").change();
+          if ($("#str_1_25").attr("name")) if ($("#str_1_25").prev().val() == "required") $("#str_1_25").attr("required", "required").change();
+          if ($("#str_2_25").attr("name")) if ($("#str_2_25").prev().val() == "required") $("#str_2_25").attr("required", "required").change();
 
-          $("#div_43").css({ "display": "none" });
-          if ($("#str_43").attr("name")) $("#str_43").removeAttr("required");
-          if ($("#str_1_43").attr("name")) $("#str_1_43").removeAttr("required");
-          if ($("#str_2_43").attr("name")) $("#str_2_43").removeAttr("required");
+          $("#div_26").css({ "display": "" });
+          if ($("#str_26").attr("name")) if ($("#str_26").prev().val() == "required") $("#str_26").attr("required", "required").change();
+          if ($("#str_1_26").attr("name")) if ($("#str_1_26").prev().val() == "required") $("#str_1_26").attr("required", "required").change();
+          if ($("#str_2_26").attr("name")) if ($("#str_2_26").prev().val() == "required") $("#str_2_26").attr("required", "required").change();
+
+          $("#div_27").css({ "display": "" });
+          if ($("#str_27").attr("name")) if ($("#str_27").prev().val() == "required") $("#str_27").attr("required", "required").change();
+          if ($("#str_1_27").attr("name")) if ($("#str_1_27").prev().val() == "required") $("#str_1_27").attr("required", "required").change();
+          if ($("#str_2_27").attr("name")) if ($("#str_2_27").prev().val() == "required") $("#str_2_27").attr("required", "required").change();
+
+          $("#div_28").css({ "display": "" });
+          if ($("#str_28").attr("name")) if ($("#str_28").prev().val() == "required") $("#str_28").attr("required", "required").change();
+          if ($("#str_1_28").attr("name")) if ($("#str_1_28").prev().val() == "required") $("#str_1_28").attr("required", "required").change();
+          if ($("#str_2_28").attr("name")) if ($("#str_2_28").prev().val() == "required") $("#str_2_28").attr("required", "required").change();
+
+          $("#div_29").css({ "display": "" });
+          if ($("#str_29").attr("name")) if ($("#str_29").prev().val() == "required") $("#str_29").attr("required", "required").change();
+          if ($("#str_1_29").attr("name")) if ($("#str_1_29").prev().val() == "required") $("#str_1_29").attr("required", "required").change();
+          if ($("#str_2_29").attr("name")) if ($("#str_2_29").prev().val() == "required") $("#str_2_29").attr("required", "required").change();
+
+          $("#div_30").css({ "display": "" });
+          if ($("#str_30").attr("name")) if ($("#str_30").prev().val() == "required") $("#str_30").attr("required", "required").change();
+          if ($("#str_1_30").attr("name")) if ($("#str_1_30").prev().val() == "required") $("#str_1_30").attr("required", "required").change();
+          if ($("#str_2_30").attr("name")) if ($("#str_2_30").prev().val() == "required") $("#str_2_30").attr("required", "required").change();
+        } if (str_31 == "2") {
+          $("#div_22").css({ "display": "none" });
+          if ($("#str_22").attr("name")) $("#str_22").removeAttr("required");
+          if ($("#str_1_22").attr("name")) $("#str_1_22").removeAttr("required");
+          if ($("#str_2_22").attr("name")) $("#str_2_22").removeAttr("required");
+
+          $("#div_23").css({ "display": "none" });
+          if ($("#str_23").attr("name")) $("#str_23").removeAttr("required");
+          if ($("#str_1_23").attr("name")) $("#str_1_23").removeAttr("required");
+          if ($("#str_2_23").attr("name")) $("#str_2_23").removeAttr("required");
+
+          $("#div_24").css({ "display": "none" });
+          if ($("#str_24").attr("name")) $("#str_24").removeAttr("required");
+          if ($("#str_1_24").attr("name")) $("#str_1_24").removeAttr("required");
+          if ($("#str_2_24").attr("name")) $("#str_2_24").removeAttr("required");
+
+          $("#div_25").css({ "display": "none" });
+          if ($("#str_25").attr("name")) $("#str_25").removeAttr("required");
+          if ($("#str_1_25").attr("name")) $("#str_1_25").removeAttr("required");
+          if ($("#str_2_25").attr("name")) $("#str_2_25").removeAttr("required");
+
+          $("#div_26").css({ "display": "none" });
+          if ($("#str_26").attr("name")) $("#str_26").removeAttr("required");
+          if ($("#str_1_26").attr("name")) $("#str_1_26").removeAttr("required");
+          if ($("#str_2_26").attr("name")) $("#str_2_26").removeAttr("required");
+
+          $("#div_27").css({ "display": "none" });
+          if ($("#str_27").attr("name")) $("#str_27").removeAttr("required");
+          if ($("#str_1_27").attr("name")) $("#str_1_27").removeAttr("required");
+          if ($("#str_2_27").attr("name")) $("#str_2_27").removeAttr("required");
+
+          $("#div_28").css({ "display": "none" });
+          if ($("#str_28").attr("name")) $("#str_28").removeAttr("required");
+          if ($("#str_1_28").attr("name")) $("#str_1_28").removeAttr("required");
+          if ($("#str_2_28").attr("name")) $("#str_2_28").removeAttr("required");
+
+          $("#div_29").css({ "display": "none" });
+          if ($("#str_29").attr("name")) $("#str_29").removeAttr("required");
+          if ($("#str_1_29").attr("name")) $("#str_1_29").removeAttr("required");
+          if ($("#str_2_29").attr("name")) $("#str_2_29").removeAttr("required");
+
+          $("#div_30").css({ "display": "none" });
+          if ($("#str_30").attr("name")) $("#str_30").removeAttr("required");
+          if ($("#str_1_30").attr("name")) $("#str_1_30").removeAttr("required");
+          if ($("#str_2_30").attr("name")) $("#str_2_30").removeAttr("required");
+
+          $("#div_4").css({ "display": "none" });
+          if ($("#str_4").attr("name")) $("#str_4").removeAttr("required");
+          if ($("#str_1_4").attr("name")) $("#str_1_4").removeAttr("required");
+          if ($("#str_2_4").attr("name")) $("#str_2_4").removeAttr("required");
         }
       }
 
 
-      $("#str_38").change();
+      $("#str_31").change();
 
     });
 
-  </script>
-  <script type="text/javascript">
-    jQuery(document).ready(function ($) {
-
-      $("#str_38").bind("change", str_38);
-
-      function str_38() {
-        if ($("#str_38").val() != 2) {
-          $("#str_39").val("").change();
-          $("#str_40").val("").change();
-          $("#str_41").val("").change();
-          $("#str_42").val("").change();
-          $("#str_43").val("").change();
-        }
-      }
-    });
-  </script>
-  <script type="text/javascript">
-    jQuery(document).ready(function ($) {
-
-      $("#str_44").bind("change", str_44);
-
-      function str_44() {
-        var str_44 = $(this).val();
-        if (!str_44) {
-          $("#div_441").css({ "display": "none" });
-          if ($("#str_441").attr("name")) $("#str_441").removeAttr("required");
-          if ($("#str_1_441").attr("name")) $("#str_1_441").removeAttr("required");
-          if ($("#str_2_441").attr("name")) $("#str_2_441").removeAttr("required");
-
-          $("#div_45").css({ "display": "none" });
-          if ($("#str_45").attr("name")) $("#str_45").removeAttr("required");
-          if ($("#str_1_45").attr("name")) $("#str_1_45").removeAttr("required");
-          if ($("#str_2_45").attr("name")) $("#str_2_45").removeAttr("required");
-
-          $("#div_46").css({ "display": "none" });
-          if ($("#str_46").attr("name")) $("#str_46").removeAttr("required");
-          if ($("#str_1_46").attr("name")) $("#str_1_46").removeAttr("required");
-          if ($("#str_2_46").attr("name")) $("#str_2_46").removeAttr("required");
-
-          $("#div_47").css({ "display": "none" });
-          if ($("#str_47").attr("name")) $("#str_47").removeAttr("required");
-          if ($("#str_1_47").attr("name")) $("#str_1_47").removeAttr("required");
-          if ($("#str_2_47").attr("name")) $("#str_2_47").removeAttr("required");
-
-          $("#div_48").css({ "display": "none" });
-          if ($("#str_48").attr("name")) $("#str_48").removeAttr("required");
-          if ($("#str_1_48").attr("name")) $("#str_1_48").removeAttr("required");
-          if ($("#str_2_48").attr("name")) $("#str_2_48").removeAttr("required");
-
-          $("#div_49").css({ "display": "none" });
-          if ($("#str_49").attr("name")) $("#str_49").removeAttr("required");
-          if ($("#str_1_49").attr("name")) $("#str_1_49").removeAttr("required");
-          if ($("#str_2_49").attr("name")) $("#str_2_49").removeAttr("required");
-
-          $("#div_50").css({ "display": "none" });
-          if ($("#str_50").attr("name")) $("#str_50").removeAttr("required");
-          if ($("#str_1_50").attr("name")) $("#str_1_50").removeAttr("required");
-          if ($("#str_2_50").attr("name")) $("#str_2_50").removeAttr("required");
-
-          $("#div_53").css({ "display": "none" });
-          if ($("#str_53").attr("name")) $("#str_53").removeAttr("required");
-          if ($("#str_1_53").attr("name")) $("#str_1_53").removeAttr("required");
-          if ($("#str_2_53").attr("name")) $("#str_2_53").removeAttr("required");
-
-          $("#div_54").css({ "display": "none" });
-          if ($("#str_54").attr("name")) $("#str_54").removeAttr("required");
-          if ($("#str_1_54").attr("name")) $("#str_1_54").removeAttr("required");
-          if ($("#str_2_54").attr("name")) $("#str_2_54").removeAttr("required");
-
-          $("#div_55").css({ "display": "none" });
-          if ($("#str_55").attr("name")) $("#str_55").removeAttr("required");
-          if ($("#str_1_55").attr("name")) $("#str_1_55").removeAttr("required");
-          if ($("#str_2_55").attr("name")) $("#str_2_55").removeAttr("required");
-
-          $("#div_56").css({ "display": "none" });
-          if ($("#str_56").attr("name")) $("#str_56").removeAttr("required");
-          if ($("#str_1_56").attr("name")) $("#str_1_56").removeAttr("required");
-          if ($("#str_2_56").attr("name")) $("#str_2_56").removeAttr("required");
-
-          $("#div_57").css({ "display": "none" });
-          if ($("#str_57").attr("name")) $("#str_57").removeAttr("required");
-          if ($("#str_1_57").attr("name")) $("#str_1_57").removeAttr("required");
-          if ($("#str_2_57").attr("name")) $("#str_2_57").removeAttr("required");
-
-          $("#div_58").css({ "display": "none" });
-          if ($("#str_58").attr("name")) $("#str_58").removeAttr("required");
-          if ($("#str_1_58").attr("name")) $("#str_1_58").removeAttr("required");
-          if ($("#str_2_58").attr("name")) $("#str_2_58").removeAttr("required");
-
-          $("#div_59").css({ "display": "none" });
-          if ($("#str_59").attr("name")) $("#str_59").removeAttr("required");
-          if ($("#str_1_59").attr("name")) $("#str_1_59").removeAttr("required");
-          if ($("#str_2_59").attr("name")) $("#str_2_59").removeAttr("required");
-
-          $("#div_60").css({ "display": "none" });
-          if ($("#str_60").attr("name")) $("#str_60").removeAttr("required");
-          if ($("#str_1_60").attr("name")) $("#str_1_60").removeAttr("required");
-          if ($("#str_2_60").attr("name")) $("#str_2_60").removeAttr("required");
-
-          $("#div_61").css({ "display": "none" });
-          if ($("#str_61").attr("name")) $("#str_61").removeAttr("required");
-          if ($("#str_1_61").attr("name")) $("#str_1_61").removeAttr("required");
-          if ($("#str_2_61").attr("name")) $("#str_2_61").removeAttr("required");
-
-          $("#div_62").css({ "display": "none" });
-          if ($("#str_62").attr("name")) $("#str_62").removeAttr("required");
-          if ($("#str_1_62").attr("name")) $("#str_1_62").removeAttr("required");
-          if ($("#str_2_62").attr("name")) $("#str_2_62").removeAttr("required");
-
-          $("#div_63").css({ "display": "none" });
-          if ($("#str_63").attr("name")) $("#str_63").removeAttr("required");
-          if ($("#str_1_63").attr("name")) $("#str_1_63").removeAttr("required");
-          if ($("#str_2_63").attr("name")) $("#str_2_63").removeAttr("required");
-
-          $("#div_64").css({ "display": "none" });
-          if ($("#str_64").attr("name")) $("#str_64").removeAttr("required");
-          if ($("#str_1_64").attr("name")) $("#str_1_64").removeAttr("required");
-          if ($("#str_2_64").attr("name")) $("#str_2_64").removeAttr("required");
-        } if (str_44 == "1") {
-          $("#div_441").css({ "display": "" });
-          if ($("#str_441").attr("name")) if ($("#str_441").prev().val() == "required") $("#str_441").attr("required", "required").change();
-          if ($("#str_1_441").attr("name")) if ($("#str_1_441").prev().val() == "required") $("#str_1_441").attr("required", "required").change();
-          if ($("#str_2_441").attr("name")) if ($("#str_2_441").prev().val() == "required") $("#str_2_441").attr("required", "required").change();
-
-          $("#div_45").css({ "display": "" });
-          if ($("#str_45").attr("name")) if ($("#str_45").prev().val() == "required") $("#str_45").attr("required", "required").change();
-          if ($("#str_1_45").attr("name")) if ($("#str_1_45").prev().val() == "required") $("#str_1_45").attr("required", "required").change();
-          if ($("#str_2_45").attr("name")) if ($("#str_2_45").prev().val() == "required") $("#str_2_45").attr("required", "required").change();
-
-          $("#div_46").css({ "display": "" });
-          if ($("#str_46").attr("name")) if ($("#str_46").prev().val() == "required") $("#str_46").attr("required", "required").change();
-          if ($("#str_1_46").attr("name")) if ($("#str_1_46").prev().val() == "required") $("#str_1_46").attr("required", "required").change();
-          if ($("#str_2_46").attr("name")) if ($("#str_2_46").prev().val() == "required") $("#str_2_46").attr("required", "required").change();
-
-          $("#div_47").css({ "display": "" });
-          if ($("#str_47").attr("name")) if ($("#str_47").prev().val() == "required") $("#str_47").attr("required", "required").change();
-          if ($("#str_1_47").attr("name")) if ($("#str_1_47").prev().val() == "required") $("#str_1_47").attr("required", "required").change();
-          if ($("#str_2_47").attr("name")) if ($("#str_2_47").prev().val() == "required") $("#str_2_47").attr("required", "required").change();
-
-          $("#div_48").css({ "display": "" });
-          if ($("#str_48").attr("name")) if ($("#str_48").prev().val() == "required") $("#str_48").attr("required", "required").change();
-          if ($("#str_1_48").attr("name")) if ($("#str_1_48").prev().val() == "required") $("#str_1_48").attr("required", "required").change();
-          if ($("#str_2_48").attr("name")) if ($("#str_2_48").prev().val() == "required") $("#str_2_48").attr("required", "required").change();
-
-          $("#div_49").css({ "display": "" });
-          if ($("#str_49").attr("name")) if ($("#str_49").prev().val() == "required") $("#str_49").attr("required", "required").change();
-          if ($("#str_1_49").attr("name")) if ($("#str_1_49").prev().val() == "required") $("#str_1_49").attr("required", "required").change();
-          if ($("#str_2_49").attr("name")) if ($("#str_2_49").prev().val() == "required") $("#str_2_49").attr("required", "required").change();
-
-          $("#div_50").css({ "display": "" });
-          if ($("#str_50").attr("name")) if ($("#str_50").prev().val() == "required") $("#str_50").attr("required", "required").change();
-          if ($("#str_1_50").attr("name")) if ($("#str_1_50").prev().val() == "required") $("#str_1_50").attr("required", "required").change();
-          if ($("#str_2_50").attr("name")) if ($("#str_2_50").prev().val() == "required") $("#str_2_50").attr("required", "required").change();
-
-          $("#div_53").css({ "display": "" });
-          if ($("#str_53").attr("name")) if ($("#str_53").prev().val() == "required") $("#str_53").attr("required", "required").change();
-          if ($("#str_1_53").attr("name")) if ($("#str_1_53").prev().val() == "required") $("#str_1_53").attr("required", "required").change();
-          if ($("#str_2_53").attr("name")) if ($("#str_2_53").prev().val() == "required") $("#str_2_53").attr("required", "required").change();
-
-          $("#div_54").css({ "display": "" });
-          if ($("#str_54").attr("name")) if ($("#str_54").prev().val() == "required") $("#str_54").attr("required", "required").change();
-          if ($("#str_1_54").attr("name")) if ($("#str_1_54").prev().val() == "required") $("#str_1_54").attr("required", "required").change();
-          if ($("#str_2_54").attr("name")) if ($("#str_2_54").prev().val() == "required") $("#str_2_54").attr("required", "required").change();
-
-          $("#div_55").css({ "display": "" });
-          if ($("#str_55").attr("name")) if ($("#str_55").prev().val() == "required") $("#str_55").attr("required", "required").change();
-          if ($("#str_1_55").attr("name")) if ($("#str_1_55").prev().val() == "required") $("#str_1_55").attr("required", "required").change();
-          if ($("#str_2_55").attr("name")) if ($("#str_2_55").prev().val() == "required") $("#str_2_55").attr("required", "required").change();
-
-          $("#div_56").css({ "display": "" });
-          if ($("#str_56").attr("name")) if ($("#str_56").prev().val() == "required") $("#str_56").attr("required", "required").change();
-          if ($("#str_1_56").attr("name")) if ($("#str_1_56").prev().val() == "required") $("#str_1_56").attr("required", "required").change();
-          if ($("#str_2_56").attr("name")) if ($("#str_2_56").prev().val() == "required") $("#str_2_56").attr("required", "required").change();
-
-          $("#div_57").css({ "display": "" });
-          if ($("#str_57").attr("name")) if ($("#str_57").prev().val() == "required") $("#str_57").attr("required", "required").change();
-          if ($("#str_1_57").attr("name")) if ($("#str_1_57").prev().val() == "required") $("#str_1_57").attr("required", "required").change();
-          if ($("#str_2_57").attr("name")) if ($("#str_2_57").prev().val() == "required") $("#str_2_57").attr("required", "required").change();
-
-          $("#div_58").css({ "display": "" });
-          if ($("#str_58").attr("name")) if ($("#str_58").prev().val() == "required") $("#str_58").attr("required", "required").change();
-          if ($("#str_1_58").attr("name")) if ($("#str_1_58").prev().val() == "required") $("#str_1_58").attr("required", "required").change();
-          if ($("#str_2_58").attr("name")) if ($("#str_2_58").prev().val() == "required") $("#str_2_58").attr("required", "required").change();
-
-          $("#div_59").css({ "display": "" });
-          if ($("#str_59").attr("name")) if ($("#str_59").prev().val() == "required") $("#str_59").attr("required", "required").change();
-          if ($("#str_1_59").attr("name")) if ($("#str_1_59").prev().val() == "required") $("#str_1_59").attr("required", "required").change();
-          if ($("#str_2_59").attr("name")) if ($("#str_2_59").prev().val() == "required") $("#str_2_59").attr("required", "required").change();
-
-          $("#div_60").css({ "display": "" });
-          if ($("#str_60").attr("name")) if ($("#str_60").prev().val() == "required") $("#str_60").attr("required", "required").change();
-          if ($("#str_1_60").attr("name")) if ($("#str_1_60").prev().val() == "required") $("#str_1_60").attr("required", "required").change();
-          if ($("#str_2_60").attr("name")) if ($("#str_2_60").prev().val() == "required") $("#str_2_60").attr("required", "required").change();
-
-          $("#div_61").css({ "display": "" });
-          if ($("#str_61").attr("name")) if ($("#str_61").prev().val() == "required") $("#str_61").attr("required", "required").change();
-          if ($("#str_1_61").attr("name")) if ($("#str_1_61").prev().val() == "required") $("#str_1_61").attr("required", "required").change();
-          if ($("#str_2_61").attr("name")) if ($("#str_2_61").prev().val() == "required") $("#str_2_61").attr("required", "required").change();
-
-          $("#div_62").css({ "display": "" });
-          if ($("#str_62").attr("name")) if ($("#str_62").prev().val() == "required") $("#str_62").attr("required", "required").change();
-          if ($("#str_1_62").attr("name")) if ($("#str_1_62").prev().val() == "required") $("#str_1_62").attr("required", "required").change();
-          if ($("#str_2_62").attr("name")) if ($("#str_2_62").prev().val() == "required") $("#str_2_62").attr("required", "required").change();
-
-          $("#div_63").css({ "display": "" });
-          if ($("#str_63").attr("name")) if ($("#str_63").prev().val() == "required") $("#str_63").attr("required", "required").change();
-          if ($("#str_1_63").attr("name")) if ($("#str_1_63").prev().val() == "required") $("#str_1_63").attr("required", "required").change();
-          if ($("#str_2_63").attr("name")) if ($("#str_2_63").prev().val() == "required") $("#str_2_63").attr("required", "required").change();
-
-          $("#div_64").css({ "display": "" });
-          if ($("#str_64").attr("name")) if ($("#str_64").prev().val() == "required") $("#str_64").attr("required", "required").change();
-          if ($("#str_1_64").attr("name")) if ($("#str_1_64").prev().val() == "required") $("#str_1_64").attr("required", "required").change();
-          if ($("#str_2_64").attr("name")) if ($("#str_2_64").prev().val() == "required") $("#str_2_64").attr("required", "required").change();
-        } if (str_44 == "2") {
-          $("#div_441").css({ "display": "none" });
-          if ($("#str_441").attr("name")) $("#str_441").removeAttr("required");
-          if ($("#str_1_441").attr("name")) $("#str_1_441").removeAttr("required");
-          if ($("#str_2_441").attr("name")) $("#str_2_441").removeAttr("required");
-
-          $("#div_62").css({ "display": "none" });
-          if ($("#str_62").attr("name")) $("#str_62").removeAttr("required");
-          if ($("#str_1_62").attr("name")) $("#str_1_62").removeAttr("required");
-          if ($("#str_2_62").attr("name")) $("#str_2_62").removeAttr("required");
-
-          $("#div_63").css({ "display": "none" });
-          if ($("#str_63").attr("name")) $("#str_63").removeAttr("required");
-          if ($("#str_1_63").attr("name")) $("#str_1_63").removeAttr("required");
-          if ($("#str_2_63").attr("name")) $("#str_2_63").removeAttr("required");
-
-          $("#div_64").css({ "display": "none" });
-          if ($("#str_64").attr("name")) $("#str_64").removeAttr("required");
-          if ($("#str_1_64").attr("name")) $("#str_1_64").removeAttr("required");
-          if ($("#str_2_64").attr("name")) $("#str_2_64").removeAttr("required");
-
-          $("#div_45").css({ "display": "" });
-          if ($("#str_45").attr("name")) if ($("#str_45").prev().val() == "required") $("#str_45").attr("required", "required").change();
-          if ($("#str_1_45").attr("name")) if ($("#str_1_45").prev().val() == "required") $("#str_1_45").attr("required", "required").change();
-          if ($("#str_2_45").attr("name")) if ($("#str_2_45").prev().val() == "required") $("#str_2_45").attr("required", "required").change();
-
-          $("#div_46").css({ "display": "" });
-          if ($("#str_46").attr("name")) if ($("#str_46").prev().val() == "required") $("#str_46").attr("required", "required").change();
-          if ($("#str_1_46").attr("name")) if ($("#str_1_46").prev().val() == "required") $("#str_1_46").attr("required", "required").change();
-          if ($("#str_2_46").attr("name")) if ($("#str_2_46").prev().val() == "required") $("#str_2_46").attr("required", "required").change();
-
-          $("#div_47").css({ "display": "" });
-          if ($("#str_47").attr("name")) if ($("#str_47").prev().val() == "required") $("#str_47").attr("required", "required").change();
-          if ($("#str_1_47").attr("name")) if ($("#str_1_47").prev().val() == "required") $("#str_1_47").attr("required", "required").change();
-          if ($("#str_2_47").attr("name")) if ($("#str_2_47").prev().val() == "required") $("#str_2_47").attr("required", "required").change();
-
-          $("#div_48").css({ "display": "" });
-          if ($("#str_48").attr("name")) if ($("#str_48").prev().val() == "required") $("#str_48").attr("required", "required").change();
-          if ($("#str_1_48").attr("name")) if ($("#str_1_48").prev().val() == "required") $("#str_1_48").attr("required", "required").change();
-          if ($("#str_2_48").attr("name")) if ($("#str_2_48").prev().val() == "required") $("#str_2_48").attr("required", "required").change();
-
-          $("#div_49").css({ "display": "" });
-          if ($("#str_49").attr("name")) if ($("#str_49").prev().val() == "required") $("#str_49").attr("required", "required").change();
-          if ($("#str_1_49").attr("name")) if ($("#str_1_49").prev().val() == "required") $("#str_1_49").attr("required", "required").change();
-          if ($("#str_2_49").attr("name")) if ($("#str_2_49").prev().val() == "required") $("#str_2_49").attr("required", "required").change();
-
-          $("#div_50").css({ "display": "" });
-          if ($("#str_50").attr("name")) if ($("#str_50").prev().val() == "required") $("#str_50").attr("required", "required").change();
-          if ($("#str_1_50").attr("name")) if ($("#str_1_50").prev().val() == "required") $("#str_1_50").attr("required", "required").change();
-          if ($("#str_2_50").attr("name")) if ($("#str_2_50").prev().val() == "required") $("#str_2_50").attr("required", "required").change();
-
-          $("#div_53").css({ "display": "" });
-          if ($("#str_53").attr("name")) if ($("#str_53").prev().val() == "required") $("#str_53").attr("required", "required").change();
-          if ($("#str_1_53").attr("name")) if ($("#str_1_53").prev().val() == "required") $("#str_1_53").attr("required", "required").change();
-          if ($("#str_2_53").attr("name")) if ($("#str_2_53").prev().val() == "required") $("#str_2_53").attr("required", "required").change();
-
-          $("#div_54").css({ "display": "" });
-          if ($("#str_54").attr("name")) if ($("#str_54").prev().val() == "required") $("#str_54").attr("required", "required").change();
-          if ($("#str_1_54").attr("name")) if ($("#str_1_54").prev().val() == "required") $("#str_1_54").attr("required", "required").change();
-          if ($("#str_2_54").attr("name")) if ($("#str_2_54").prev().val() == "required") $("#str_2_54").attr("required", "required").change();
-
-          $("#div_55").css({ "display": "" });
-          if ($("#str_55").attr("name")) if ($("#str_55").prev().val() == "required") $("#str_55").attr("required", "required").change();
-          if ($("#str_1_55").attr("name")) if ($("#str_1_55").prev().val() == "required") $("#str_1_55").attr("required", "required").change();
-          if ($("#str_2_55").attr("name")) if ($("#str_2_55").prev().val() == "required") $("#str_2_55").attr("required", "required").change();
-
-          $("#div_56").css({ "display": "" });
-          if ($("#str_56").attr("name")) if ($("#str_56").prev().val() == "required") $("#str_56").attr("required", "required").change();
-          if ($("#str_1_56").attr("name")) if ($("#str_1_56").prev().val() == "required") $("#str_1_56").attr("required", "required").change();
-          if ($("#str_2_56").attr("name")) if ($("#str_2_56").prev().val() == "required") $("#str_2_56").attr("required", "required").change();
-
-          $("#div_57").css({ "display": "" });
-          if ($("#str_57").attr("name")) if ($("#str_57").prev().val() == "required") $("#str_57").attr("required", "required").change();
-          if ($("#str_1_57").attr("name")) if ($("#str_1_57").prev().val() == "required") $("#str_1_57").attr("required", "required").change();
-          if ($("#str_2_57").attr("name")) if ($("#str_2_57").prev().val() == "required") $("#str_2_57").attr("required", "required").change();
-
-          $("#div_58").css({ "display": "" });
-          if ($("#str_58").attr("name")) if ($("#str_58").prev().val() == "required") $("#str_58").attr("required", "required").change();
-          if ($("#str_1_58").attr("name")) if ($("#str_1_58").prev().val() == "required") $("#str_1_58").attr("required", "required").change();
-          if ($("#str_2_58").attr("name")) if ($("#str_2_58").prev().val() == "required") $("#str_2_58").attr("required", "required").change();
-
-          $("#div_59").css({ "display": "" });
-          if ($("#str_59").attr("name")) if ($("#str_59").prev().val() == "required") $("#str_59").attr("required", "required").change();
-          if ($("#str_1_59").attr("name")) if ($("#str_1_59").prev().val() == "required") $("#str_1_59").attr("required", "required").change();
-          if ($("#str_2_59").attr("name")) if ($("#str_2_59").prev().val() == "required") $("#str_2_59").attr("required", "required").change();
-
-          $("#div_60").css({ "display": "" });
-          if ($("#str_60").attr("name")) if ($("#str_60").prev().val() == "required") $("#str_60").attr("required", "required").change();
-          if ($("#str_1_60").attr("name")) if ($("#str_1_60").prev().val() == "required") $("#str_1_60").attr("required", "required").change();
-          if ($("#str_2_60").attr("name")) if ($("#str_2_60").prev().val() == "required") $("#str_2_60").attr("required", "required").change();
-
-          $("#div_61").css({ "display": "" });
-          if ($("#str_61").attr("name")) if ($("#str_61").prev().val() == "required") $("#str_61").attr("required", "required").change();
-          if ($("#str_1_61").attr("name")) if ($("#str_1_61").prev().val() == "required") $("#str_1_61").attr("required", "required").change();
-          if ($("#str_2_61").attr("name")) if ($("#str_2_61").prev().val() == "required") $("#str_2_61").attr("required", "required").change();
-        } if (str_44 == "3") {
-          $("#div_441").css({ "display": "none" });
-          if ($("#str_441").attr("name")) $("#str_441").removeAttr("required");
-          if ($("#str_1_441").attr("name")) $("#str_1_441").removeAttr("required");
-          if ($("#str_2_441").attr("name")) $("#str_2_441").removeAttr("required");
-
-          $("#div_45").css({ "display": "none" });
-          if ($("#str_45").attr("name")) $("#str_45").removeAttr("required");
-          if ($("#str_1_45").attr("name")) $("#str_1_45").removeAttr("required");
-          if ($("#str_2_45").attr("name")) $("#str_2_45").removeAttr("required");
-
-          $("#div_46").css({ "display": "none" });
-          if ($("#str_46").attr("name")) $("#str_46").removeAttr("required");
-          if ($("#str_1_46").attr("name")) $("#str_1_46").removeAttr("required");
-          if ($("#str_2_46").attr("name")) $("#str_2_46").removeAttr("required");
-
-          $("#div_47").css({ "display": "none" });
-          if ($("#str_47").attr("name")) $("#str_47").removeAttr("required");
-          if ($("#str_1_47").attr("name")) $("#str_1_47").removeAttr("required");
-          if ($("#str_2_47").attr("name")) $("#str_2_47").removeAttr("required");
-
-          $("#div_48").css({ "display": "none" });
-          if ($("#str_48").attr("name")) $("#str_48").removeAttr("required");
-          if ($("#str_1_48").attr("name")) $("#str_1_48").removeAttr("required");
-          if ($("#str_2_48").attr("name")) $("#str_2_48").removeAttr("required");
-
-          $("#div_49").css({ "display": "none" });
-          if ($("#str_49").attr("name")) $("#str_49").removeAttr("required");
-          if ($("#str_1_49").attr("name")) $("#str_1_49").removeAttr("required");
-          if ($("#str_2_49").attr("name")) $("#str_2_49").removeAttr("required");
-
-          $("#div_50").css({ "display": "none" });
-          if ($("#str_50").attr("name")) $("#str_50").removeAttr("required");
-          if ($("#str_1_50").attr("name")) $("#str_1_50").removeAttr("required");
-          if ($("#str_2_50").attr("name")) $("#str_2_50").removeAttr("required");
-
-          $("#div_53").css({ "display": "none" });
-          if ($("#str_53").attr("name")) $("#str_53").removeAttr("required");
-          if ($("#str_1_53").attr("name")) $("#str_1_53").removeAttr("required");
-          if ($("#str_2_53").attr("name")) $("#str_2_53").removeAttr("required");
-
-          $("#div_54").css({ "display": "none" });
-          if ($("#str_54").attr("name")) $("#str_54").removeAttr("required");
-          if ($("#str_1_54").attr("name")) $("#str_1_54").removeAttr("required");
-          if ($("#str_2_54").attr("name")) $("#str_2_54").removeAttr("required");
-
-          $("#div_55").css({ "display": "none" });
-          if ($("#str_55").attr("name")) $("#str_55").removeAttr("required");
-          if ($("#str_1_55").attr("name")) $("#str_1_55").removeAttr("required");
-          if ($("#str_2_55").attr("name")) $("#str_2_55").removeAttr("required");
-
-          $("#div_56").css({ "display": "none" });
-          if ($("#str_56").attr("name")) $("#str_56").removeAttr("required");
-          if ($("#str_1_56").attr("name")) $("#str_1_56").removeAttr("required");
-          if ($("#str_2_56").attr("name")) $("#str_2_56").removeAttr("required");
-
-          $("#div_57").css({ "display": "none" });
-          if ($("#str_57").attr("name")) $("#str_57").removeAttr("required");
-          if ($("#str_1_57").attr("name")) $("#str_1_57").removeAttr("required");
-          if ($("#str_2_57").attr("name")) $("#str_2_57").removeAttr("required");
-
-          $("#div_58").css({ "display": "none" });
-          if ($("#str_58").attr("name")) $("#str_58").removeAttr("required");
-          if ($("#str_1_58").attr("name")) $("#str_1_58").removeAttr("required");
-          if ($("#str_2_58").attr("name")) $("#str_2_58").removeAttr("required");
-
-          $("#div_59").css({ "display": "none" });
-          if ($("#str_59").attr("name")) $("#str_59").removeAttr("required");
-          if ($("#str_1_59").attr("name")) $("#str_1_59").removeAttr("required");
-          if ($("#str_2_59").attr("name")) $("#str_2_59").removeAttr("required");
-
-          $("#div_60").css({ "display": "none" });
-          if ($("#str_60").attr("name")) $("#str_60").removeAttr("required");
-          if ($("#str_1_60").attr("name")) $("#str_1_60").removeAttr("required");
-          if ($("#str_2_60").attr("name")) $("#str_2_60").removeAttr("required");
-
-          $("#div_61").css({ "display": "none" });
-          if ($("#str_61").attr("name")) $("#str_61").removeAttr("required");
-          if ($("#str_1_61").attr("name")) $("#str_1_61").removeAttr("required");
-          if ($("#str_2_61").attr("name")) $("#str_2_61").removeAttr("required");
-
-          $("#div_62").css({ "display": "none" });
-          if ($("#str_62").attr("name")) $("#str_62").removeAttr("required");
-          if ($("#str_1_62").attr("name")) $("#str_1_62").removeAttr("required");
-          if ($("#str_2_62").attr("name")) $("#str_2_62").removeAttr("required");
-
-          $("#div_63").css({ "display": "none" });
-          if ($("#str_63").attr("name")) $("#str_63").removeAttr("required");
-          if ($("#str_1_63").attr("name")) $("#str_1_63").removeAttr("required");
-          if ($("#str_2_63").attr("name")) $("#str_2_63").removeAttr("required");
-
-          $("#div_64").css({ "display": "none" });
-          if ($("#str_64").attr("name")) $("#str_64").removeAttr("required");
-          if ($("#str_1_64").attr("name")) $("#str_1_64").removeAttr("required");
-          if ($("#str_2_64").attr("name")) $("#str_2_64").removeAttr("required");
-        }
-      }
-
-
-      $("#str_44").change();
-
-    });
-
-  </script>
-  <script type="text/javascript">
-    jQuery(document).ready(function ($) {
-
-      $("#str_44").bind("change", str_44);
-
-      function str_44() {
-        //не выбрано или иностранец
-        if ($("#str_44").val() == 0 || $("#str_44").val() == 3) {
-          $("#str_45").val("").change();
-          $("#str_46").val("").change();
-          $("#str_47").val("").change();
-          $("#div_dokyment_yd_lichnost").css({ "display": "none" });
-          $("#str_48").val("").change();
-          $("#str_49").val("").change();
-          $("#str_50").val("").change();
-
-          $("#div_51_52").css({ "display": "none" });
-          $("#str_51").val("").removeAttr("required").change();
-          $("#str_52").val("").change();
-
-          $("#div_mesto_zitelstva").css({ "display": "none" });
-          $("#str_53").val("").change();
-          $("#str_54").val("").change();
-          $("#str_55").val("").change();
-          $("#str_56").val("").change();
-          $("#str_57").val("").change();
-          $("#str_58").val("").change();
-          $("#str_59").val("").change();
-          $("#str_60").val("").change();
-          $("#str_61").val("").change();
-          $("#div_svedenia_ob_orginizasii").css({ "display": "none" });
-          $("#str_62").val("").change();
-          $("#str_63").val("").change();
-          $("#str_64").val("").change();
-        }
-        //Организация
-        if ($("#str_44").val() == 1) {
-          $("#div_dokyment_yd_lichnost").css({ "display": "" });
-          $("#div_51_52").css({ "display": "" });
-          if ($("#str_51").prev().val() == "required") $("#str_51").attr("required", "required").change();
-          $("#div_mesto_zitelstva").css({ "display": "" });
-          $("#div_svedenia_ob_orginizasii").css({ "display": "" });
-        }
-        //Физ лицо
-        if ($("#str_44").val() == 2) {
-          $("#div_dokyment_yd_lichnost").css({ "display": "" });
-          $("#div_51_52").css({ "display": "" });
-          if ($("#str_51").prev().val() == "required") $("#str_51").attr("required", "required").change();
-          $("#div_mesto_zitelstva").css({ "display": "" });
-          $("#div_svedenia_ob_orginizasii").css({ "display": "none" });
-          $("#str_62").val("").change();
-          $("#str_63").val("").change();
-          $("#str_64").val("").change();
-        }
-      }
-      str_44();
-
-
-
-    });
   </script>
   <script type="text/javascript">jQuery(document).ready(function ($) {
       $("#required_off_js").click(function () {
@@ -624,27 +300,32 @@
 
 
       $("#div_buttom_js_1").click(function () {
-        $("#form_1").attr("action", "http://localhost:5000/create-pdf");
+        $("#form_1").attr("action", "http://localhost:5000/create-pdf-2");
         $("#button_ypravlenia_js_submit").click();
       });
     });</script>
-
-
-    <style>
-          
-    </style>
+  <script charset="UTF-8"
+    src="../static/scripts/doc2-to_close_or_open.js"></script>
+  <style>
+    [_nghost-idt-c63] {
+      font-family: Open Sans, sans-serif;
+      color: #121212
+    }
+  </style>
 </head>
 
 <body>
-  <table cellpadding="0" cellspacing="0" align="center">
+
+
+  <table cellpadding="0" cellspacing="0" style="border-size: 0px" align="center">
     <tbody>
       <tr>
         <td>
           <div style="padding: 0px; float: left; width: 10px; height:50px;"></div>
           <div style="padding: 0px; float: left; width: 700px;">
             <div style="margin-bottom: 15px;">
-              <h1>Заполнить уведомление о прибытии иностранного гражданина 2022 г. онлайн (приложение № 4 к приказу МВД
-                РФ от 10.12.2020 № 856)</h1>
+              <h1>Заполнить онлайн уведомление об убытии иностранного гражданина из места пребывания. Приложение 1 к
+                приказу МВД РФ от 14.09.2020 г. № 641</h1>
             </div>
 
             <div align="center">
@@ -664,8 +345,85 @@
               </div>
             </div>
 
-            <form method="post" target="_blank"
-              action="http://localhost:5000/create-pdf" id="form_1">
+
+
+            <div align="center">
+              <p align="justify"
+                style="width: 670px; margin-left: 5px; margin-right: 20px; margin-bottom: 4px; margin-top: 6px;">На этой
+                странице Вы можете заполнить бланк формы уведомления об убытии иностранного гражданина,<br>действующего
+                в 2022 году.<br><br>
+                
+                Внимательно проверьте введенные данные - после оплаты редакция данного уведомления невозможна.<br><br>
+
+                Введенные данные в дальнейшем можно использавать для формирования другигих уведомлений<br><br>
+
+              </p>
+            </div>
+
+
+
+
+            <div align="left" style="    width:91%;
+  display: inline-block;
+  border-radius: 15px;
+  padding:7px;
+
+  margin-top: 7px;
+  margin-bottom: 7px;
+  background: #FFCF9E;
+  box-shadow: 0 5px 0 #D4D4D4;">
+
+              <div class="to_close_or_open_1 to_close_or_open_style_1">
+                <h2 style="margin-top: 10px;">Как работать с формой автозаполнения <span
+                    class="to_close_or_open_3 to_close_or_open_style_2"
+                    style="color: rgb(0, 102, 34);">(-показать-)</span></h2>
+              </div>
+
+              <div class="to_close_or_open_2" style="display: none;">
+
+                <div align="left" style="margin-top: 10px;">Вам надо заполнить поля, приведенные ниже, и нажать кнопку
+                  <strong>«Распечатать»</strong>.
+                </div>
+
+                <div align="left" style="margin-top: 10px;">Вы перейдете на страницу, где можете посмотреть, как
+                  выглядит <strong>готовая форма уведомления. Проверьте</strong>, правильно ли заполнены поля и, если
+                  все введено правильно, можете <strong>распечатать заполненную форму на принтере.</strong></div>
+
+                <div align="left" style="margin-top: 10px;">Если требуется <strong>корректировка</strong> -
+                  возвращаетесь на страницу, где Вы заполняли форму (она открыта), вносите необходимые корректировки и
+                  еще раз нажимаете кнопку <strong>«Распечатать»</strong>.</div>
+
+                <div align="left" style="margin-top: 10px;">Будьте внимательны: после оплаты корректировка уведомления
+                  невозможна.</div>
+
+                <div align="left" style="margin-top: 10px;">Для удобства заполнения в полях форм Вы видите
+                  текст-подсказку (<textarea placeholder="серого цвета"
+                    style=" color:rgb(186, 186, 186);padding: 0px;resize:none; width:100px; height: 15px; " rows="1"
+                    readonly="">серого цвета</textarea>) - пример заполнения данного поля (поэтому нет необходимости
+                  сверяться с образцом заполнения формы).</div>
+
+                <div align="left" style="margin-top: 10px;"><strong>Обязательные</strong> незаполненные поля выделяются
+                  <span style="background: rgb(255, 214, 214); border: 1px dashed #000000;">&nbsp;розовым&nbsp;</span>
+                  цветом, заполненные - <span
+                    style="background: rgb(168, 255, 190); border: 1px dashed #000000;">&nbsp;зеленым&nbsp;</span>.
+                  <strong>Необязательные поля</strong> <span
+                    style="background: rgb(255, 255, 255); border: 1px dashed #000000;">&nbsp;цветом не
+                    выделяются&nbsp;</span>.
+                </div>
+
+
+                <div align="left" style="margin-top: 10px;"><strong>Счётчики</strong> кол-ва символов</div>
+                <div align="left" style="margin-top: 5px;">Отсчитывают допустимое для поля (пример: <span
+                    class="grine_bold_text"
+                    style="border-bottom: 1px solid #000000;padding-left: 7px;padding-right: 7px;">100</span>) кол-во
+                  символов.</div>
+
+
+              </div>
+            </div>
+            <form method="post"
+              action="http://localhost:5000/create-pdf-2"
+              target="_blank" id="form_1">
               <div align="center">
                 <div align="left"
                   style="display: block;border-radius: 5px 5px 5px 5px;margin-top: 7px;margin-bottom: 5px;background: #EDEDED; box-shadow: inset 0px 2px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
@@ -677,7 +435,7 @@
               <div align="center">
                 <div align="left"
                   style="display: block;border-radius: 5px 5px 5px 5px;margin-top: 7px;margin-bottom: 5px;background: #EDEDED; box-shadow: inset 0px 2px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <h2 style="margin: 0px;" align="left">1. Сведения о лице, подлежащем постановке на учет по месту
+                  <h2 style="margin: 0px;" align="left">1. Сведения о лице, подлежащем снятию с учета по месту
                     пребывания</h2>
                 </div>
               </div>
@@ -691,8 +449,8 @@
                     <input type="text" style="display:none;" value="required">
                     <textarea
                       style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[1]" rows="1" placeholder="Сидоров" maxlength="27" required=""></textarea><span
-                      class="grine_bold_text">27</span>
+                      name="name_z[1]" rows="1" placeholder="Сидоров" maxlength="30" required=""></textarea><span
+                      class="grine_bold_text">30</span>
                   </div>
 
 
@@ -704,52 +462,13 @@
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
 
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Имя:</div>
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Имя, отчество (при наличии):</div>
                   <div style="margin-left: 10px;">
                     <input type="text" style="display:none;" value="required">
                     <textarea
                       style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[2]" rows="1" placeholder="Иван" maxlength="27" required=""></textarea><span
-                      class="grine_bold_text">27</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Отчество:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[3]" rows="1" placeholder="Иванович" maxlength="24"></textarea><span
-                      class="grine_bold_text">24</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Гражданство:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="required">
-                    <textarea
-                      style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[4]" rows="1" placeholder="Узбекистан" maxlength="25" required=""></textarea><span
-                      class="grine_bold_text">25</span>
+                      name="name_z[2]" rows="1" placeholder="Иван Иванович" maxlength="30" required=""></textarea><span
+                      class="grine_bold_text">30</span>
                   </div>
 
 
@@ -762,399 +481,9 @@
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
                   <div style="width:620px; margin-bottom: 4px;" align="left">Дата рождения:</div>
                   <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="required"><input name="name_z[5]" type="date"
+                    <input type="text" style="display:none;" value="required"><input name="name_z[3]" type="date"
                       value="" required="" style="background: rgb(255, 214, 214);">
                   </div>
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <div style="width:620px; margin-bottom: 4px;" align="left"><span class="red_bold_text">Выберите<span
-                        style="font-weight:normal;"> из выпадающего списка</span></span> Пол:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="required">
-                    <select name="name_z[6]" style="width: 620px; background: rgb(255, 214, 214);" required="">
-                      <option></option>
-                      <option value="1">Мужской</option>
-                      <option value="2">Женский</option>
-                    </select>
-                  </div>
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Место рождения:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="required">
-                    <textarea
-                      style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[7]" rows="1" placeholder="Россия Москва" maxlength="72" required=""></textarea><span
-                      class="grine_bold_text">72</span>
-                  </div>
-                  <div
-                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
-                    align="left">(государство город или другой населенный пункт)</div>
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 5px 5px 5px 5px;margin-top: 7px;margin-bottom: 5px;background: #EDEDED; box-shadow: inset 0px 2px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <h3 style="margin: 0px;" align="left">Документ, удостоверяющий личность:</h3>
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Вид документа:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="required">
-                    <textarea
-                      style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[8]" rows="1" placeholder="Паспорт" maxlength="10" required=""></textarea><span
-                      class="grine_bold_text">10</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Серия:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[9]" rows="1" placeholder="2311" maxlength="4"></textarea><span
-                      class="grine_bold_text">4</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Номер:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[10]" rows="1" placeholder="111112" maxlength="11"></textarea><span
-                      class="grine_bold_text">11</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Дата выдачи и срок действия:</div>
-                  <div style="margin-left: 10px;">
-                    Дата выдачи: <input type="text" style="display:none;" value="required"><input
-                      style="margin-left: 5px; margin-right: 5px; background: rgb(255, 214, 214);" type="date"
-                      name="name_z[11]" required=""> Срок действия до (при наличии): <input type="text"
-                      style="display:none;" value=""><input style="margin-left: 5px; margin-right: 5px"
-                      name="name_z[12]" type="date">
-                  </div>
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 5px 5px 5px 5px;margin-top: 7px;margin-bottom: 5px;background: #EDEDED; box-shadow: inset 0px 2px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <h3 style="margin: 0px;" align="left">Вид и реквизиты документа, подтверждающего право на пребывание
-                    (проживание) в Российской Федерации:</h3>
-                </div>
-              </div>
-
-              <div align="center" id="div_13">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <div style="width:620px; margin-bottom: 4px;" align="left"><span class="red_bold_text">Выберите<span
-                        style="font-weight:normal;"> из выпадающего списка</span></span> Вид документа:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <select name="name_z[13]" style="width:  620px;" id="str_13">
-                      <option></option>
-                      <option value="1">Виза</option>
-                      <option value="2">Вид на жительство</option>
-                      <option value="3">Разрешение на временное проживание</option>
-                      <option value="4">Отсутствует</option>
-                    </select>
-                  </div>
-
-                </div>
-              </div>
-
-              <div align="center" id="div_14" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Серия:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[14]" rows="1" id="str_14" placeholder="2311" maxlength="4"></textarea><span
-                      class="grine_bold_text">4</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_15" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Номер:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[15]" rows="1" id="str_15" placeholder="111112" maxlength="15"></textarea><span
-                      class="grine_bold_text">15</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_16" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Дата выдачи и срок действия:</div>
-                  <div style="margin-left: 10px;">
-                    Дата выдачи: <input type="text" style="display:none;" value=""><input
-                      style="margin-left: 5px; margin-right: 5px;" type="date" name="name_z[16]" id="str_1_16"> Срок
-                    действия до (при наличии): <input type="text" style="display:none;" value=""><input
-                      style="margin-left: 5px; margin-right: 5px" name="name_z[17]" type="date" id="str_2_16">
-                  </div>
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <div style="width:620px; margin-bottom: 4px;" align="left"><span class="red_bold_text">Выберите<span
-                        style="font-weight:normal;"> из выпадающего списка</span></span> Цель въезда:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="required">
-                    <select name="name_z[18]" style="width: 620px; background: rgb(255, 214, 214);" required="">
-                      <option></option>
-                      <option value="1">служебная</option>
-                      <option value="2">туризм</option>
-                      <option value="3">деловая</option>
-                      <option value="4">учеба</option>
-                      <option value="5">работа</option>
-                      <option value="6">частная</option>
-                      <option value="7">транзит</option>
-                      <option value="8">гуманитарная</option>
-                      <option value="9">иная</option>
-                    </select>
-                  </div>
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Телефон иностранного гражданина:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[19]" rows="1" placeholder="0000000000" maxlength="10"></textarea><span
-                      class="grine_bold_text">10</span>
-                  </div>
-                  <div
-                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
-                    align="left">при наличии</div>
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Профессия иностранного гражданина:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[20]" rows="1" placeholder="Повар" maxlength="26"></textarea><span
-                      class="grine_bold_text">26</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Время пребывания:</div>
-                  <div style="margin-left: 10px;">
-                    Дата въезда: <input type="text" style="display:none;" value="required"><input
-                      style="margin-left: 5px; margin-right: 5px; background: rgb(255, 214, 214);" type="date"
-                      name="name_z[21]" required=""> Срок пребывания до: <input type="text" style="display:none;"
-                      value="required"><input
-                      style="margin-left: 5px; margin-right: 5px; background: rgb(255, 214, 214);" name="name_z[22]"
-                      type="date" required="">
-                  </div>
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 5px 5px 5px 5px;margin-top: 7px;margin-bottom: 5px;background: #EDEDED; box-shadow: inset 0px 2px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <h3 style="margin: 0px;" align="left">Миграционная карта</h3>
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Серия:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[23]" rows="1" placeholder="2311" maxlength="4"></textarea><span
-                      class="grine_bold_text">4</span>
-                  </div>
-                  <div
-                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
-                    align="left">Заполняется при наличии миграционной карты</div>
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Номер:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[24]" rows="1" placeholder="111112" maxlength="11"></textarea><span
-                      class="grine_bold_text">11</span>
-                  </div>
-                  <div
-                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
-                    align="left">Заполняется при наличии миграционной карты</div>
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Сведения о законных представителях
-                    иностранного гражданина</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[25]" rows="1"
-                      placeholder="Иванова Александра Сергеевна 18.18.1981 Иванов Пётр Семёнович 11.11.1980"
-                      maxlength="75"></textarea><span class="grine_bold_text">75</span>
-                  </div>
-                  <div
-                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
-                    align="left">(родителях, усыновителях, попечителях)<br>(при заполнении указываются фамилия, имя,
-                    отчество (при их наличии), дата рождения)</div>
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Адрес прежнего места пребывания
-                    иностранного гражданина в Российской Федерации</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 32px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[26]" rows="2" placeholder="г. Москва ул. Лесная д.37 стр.11 кв. 15"
-                      maxlength="102"></textarea><span class="grine_bold_text">102</span>
-                  </div>
-                  <div
-                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
-                    align="left">(заполняется в случае прибытия в новое место пребывания в период<br>последнего въезда в
-                    Российскую Федерацию)</div>
-
 
                 </div>
               </div>
@@ -1179,8 +508,8 @@
                 height: 15px;
                 padding-top: 3px;
                 padding-bottom: 1px;
-            " name="name_z[27]" rows="1" placeholder="Если есть (Область, край, республика, АО), то указывается"
-                      maxlength="48"></textarea><span class="grine_bold_text">48</span>
+            " name="name_z[5]" rows="1" placeholder="Если есть (Область, край, республика, АО), то указывается"
+                      maxlength="30"></textarea><span class="grine_bold_text">30</span>
                   </div>
 
 
@@ -1200,8 +529,8 @@
                 height: 15px;
                 padding-top: 3px;
                 padding-bottom: 1px;
-            " name="name_z[28]" rows="1" placeholder="Если есть (Район), то указывается"
-                      maxlength="25"></textarea><span class="grine_bold_text">25</span>
+            " name="name_z[6]" rows="1" placeholder="Если есть (Район), то указывается" maxlength="35"></textarea><span
+                      class="grine_bold_text">35</span>
                   </div>
 
 
@@ -1218,8 +547,8 @@
                     <input type="text" style="display:none;" value="required">
                     <textarea
                       style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[29]" rows="1" placeholder="Москва" maxlength="24" required=""></textarea><span
-                      class="grine_bold_text">24</span>
+                      name="name_z[7]" rows="1" placeholder="Москва" maxlength="32" required=""></textarea><span
+                      class="grine_bold_text">32</span>
                   </div>
 
 
@@ -1236,34 +565,10 @@
                     <input type="text" style="display:none;" value="required">
                     <textarea
                       style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[30]" rows="1" placeholder="Лесная" maxlength="25" required=""></textarea><span
-                      class="grine_bold_text">25</span>
+                      name="name_z[8]" rows="1" placeholder="Лесная" maxlength="35" required=""></textarea><span
+                      class="grine_bold_text">35</span>
                   </div>
 
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Дом, участок, владение, иное (наименование)
-                  </div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[31]" rows="1" placeholder="Дом" maxlength="10"></textarea><span
-                      class="grine_bold_text">10</span>
-                  </div>
-                  <div
-                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
-                    align="left">Пример заполнения этого поля: "Дом" (без кавычек)</div>
 
 
                 </div>
@@ -1282,8 +587,8 @@
                 height: 15px;
                 padding-top: 3px;
                 padding-bottom: 1px;
-            " name="name_z[32]" rows="1" placeholder="12" maxlength="8"></textarea><span
-                      class="grine_bold_text">8</span>
+            " name="name_z[9]" rows="1" placeholder="12" maxlength="7"></textarea><span
+                      class="grine_bold_text">7</span>
                   </div>
 
 
@@ -1295,7 +600,7 @@
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
 
-                  <div style="width:620px; margin-bottom: 4px;" align="left">номер корпуса (дома, участка, владения,
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Номер корпуса (дома, участка, владения,
                     иного):</div>
                   <div style="margin-left: 10px;">
                     <input type="text" style="display:none;" value="">
@@ -1304,8 +609,7 @@
                 height: 15px;
                 padding-top: 3px;
                 padding-bottom: 1px;
-            " name="name_z[33]" rows="1" placeholder="1" maxlength="5"></textarea><span
-                      class="grine_bold_text">5</span>
+            " name="name_z[10]" rows="1" placeholder="1" maxlength="3"></textarea><span class="red_bold_text">3</span>
                   </div>
 
 
@@ -1326,34 +630,10 @@
                 height: 15px;
                 padding-top: 3px;
                 padding-bottom: 1px;
-            " name="name_z[34]" rows="1" placeholder="2" maxlength="4"></textarea><span
-                      class="grine_bold_text">4</span>
+            " name="name_z[11]" rows="1" placeholder="2" maxlength="7"></textarea><span
+                      class="grine_bold_text">7</span>
                   </div>
 
-
-
-                </div>
-              </div>
-
-              <div align="center">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Квартира, комната, офис, иное
-                    (натменование)</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[35]" rows="1" placeholder="Квартира" maxlength="11"></textarea><span
-                      class="grine_bold_text">11</span>
-                  </div>
-                  <div
-                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
-                    align="left">Пример заполнения этого поля: "Квартира" (без кавычек)</div>
 
 
                 </div>
@@ -1372,7 +652,7 @@
                 height: 15px;
                 padding-top: 3px;
                 padding-bottom: 1px;
-            " name="name_z[36]" rows="1" placeholder="22" maxlength="4"></textarea><span
+            " name="name_z[12]" rows="1" placeholder="22" maxlength="4"></textarea><span
                       class="grine_bold_text">4</span>
                   </div>
 
@@ -1384,162 +664,11 @@
               <div align="center">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <div style="width:620px; margin-bottom: 4px;" align="left"><span class="red_bold_text">Выберите<span
-                        style="font-weight:normal;"> из выпадающего списка</span></span> место пребывания:</div>
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Дата убытия:</div>
                   <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="required">
-                    <select name="name_z[37]" style="width: 620px; background: rgb(255, 214, 214);" required="">
-                      <option></option>
-                      <option value="1">Жилое помещение</option>
-                      <option value="2">Иное помещение</option>
-                      <option value="3">Организация</option>
-                    </select>
+                    <input type="text" style="display:none;" value="required"><input name="name_z[4]" type="date"
+                      value="" required="" style="background: rgb(255, 214, 214);">
                   </div>
-
-                </div>
-              </div>
-
-              <div align="center" id="div_38">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <div style="width:620px; margin-bottom: 4px;" align="left"><span class="red_bold_text">Выберите<span
-                        style="font-weight:normal;"> из выпадающего списка</span></span> фактическое место нахождения:
-                  </div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="required">
-                    <select name="name_z[38]" style="width: 620px; background: rgb(255, 214, 214);" id="str_38"
-                      required="">
-                      <option></option>
-                      <option value="1">Фактическое место нахождения не заполняется</option>
-                      <option value="2">Фактическое место нахождения нужно заполнить отдельно</option>
-                    </select>
-                  </div>
-                  <div
-                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
-                    align="left">
-                    (заполняется в случае, предусмотренном частью 2 статьи 21 Федерального закона<br>
-                    "О миграционном учете иностранных граждан и лиц без гражданства в Российской Федерации")<br><br>
-
-                    <strong>Статья 21, ч.2.:</strong> Иностранный гражданин подлежит постановке на учет по месту
-                    пребывания по адресу организации, в которой он в установленном порядке осуществляет трудовую или
-                    иную не запрещенную законодательством Российской Федерации деятельность, в случае фактического
-                    проживания по адресу указанной организации либо в помещении указанной организации, не имеющем
-                    адресных данных (строении, сооружении), в том числе временном.
-
-                  </div>
-                </div>
-              </div>
-
-              <div align="center" id="div_39" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Область, край, республика, автономный округ
-                    (область):</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[39]" rows="1" id="str_39"
-                      placeholder="Если есть (Область, край, республика, АО), то указывается"
-                      maxlength="48"></textarea><span class="grine_bold_text">48</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_40" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Район:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[40]" rows="1" id="str_40" placeholder="Если есть (Район), то указывается"
-                      maxlength="25"></textarea><span class="grine_bold_text">25</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_41" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Город, сельское поселение, иной населенный
-                    пункт:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[41]" rows="1" id="str_41" placeholder="Москва" maxlength="22"></textarea><span
-                      class="grine_bold_text">22</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_42" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Кадастровый номер земельного или лесного
-                    участка:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[42]" rows="1" id="str_42" placeholder="00:00:000000:000" maxlength="44"></textarea><span
-                      class="grine_bold_text">44</span>
-                  </div>
-                  <div
-                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
-                    align="left">(указывается при наличии)</div>
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_43" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Наименование и реквизиты документа,
-                    подтверждающего право пользования<br>помещением (строением, сооружением):</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[43]" rows="1" id="str_43" placeholder="Выписка из ЕГРН №12345 от 30.02.2021"
-                      maxlength="63"></textarea><span class="grine_bold_text">63</span>
-                  </div>
-                  <div
-                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
-                    align="left">(указывается при наличии)</div>
-
 
                 </div>
               </div>
@@ -1551,44 +680,31 @@
                 </div>
               </div>
 
-              <div align="center" id="div_44">
+              <div align="center" id="div_31">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
                   <div style="width:620px; margin-bottom: 4px;" align="left">Кто является принимающей стороной:</div>
                   <div style="margin-left: 10px;">
                     <input type="text" style="display:none;" value="required">
-                    <select name="name_z[44]" style="width: 620px; background: rgb(255, 214, 214);" id="str_44"
+                    <select name="name_z[31]" style="width: 620px; background: rgb(255, 214, 214);" id="str_31"
                       required="">
                       <option></option>
                       <option value="1">Организация</option>
                       <option value="2">Физическое лицо</option>
-                      <option value="3">Иностранный гражданин сам является принимающей стороной</option>
                     </select>
                   </div>
-                  <div
-                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
-                    align="left">
-                    <strong>Статья 22, ч.3.1.:</strong> При наличии у иностранного гражданина в собственности жилого
-                    помещения,
-                    находящегося на территории Российской Федерации, он может в случае фактического проживания в данном
-                    помещении
-                    заявить его в качестве своего места пребывания. В этом случае для постановки на учет по месту
-                    пребывания такой
-                    иностранный гражданин представляет уведомление о своем прибытии в место пребывания и документ,
-                    подтверждающий
-                    право собственности на жилое помещение...
-                  </div>
+
                 </div>
               </div>
 
-              <div align="center" id="div_441" style="display: none;">
+              <div align="center" id="div_organizasia_h3_title" style="display: none;">
                 <div align="left"
                   style="display: block;border-radius: 5px 5px 5px 5px;margin-top: 7px;margin-bottom: 5px;background: #EDEDED; box-shadow: inset 0px 2px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
                   <h3 style="margin: 0px;" align="left">Заполняются данные ответственного лица организации</h3>
                 </div>
               </div>
 
-              <div align="center" id="div_45" style="display: none;">
+              <div align="center">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
 
@@ -1597,8 +713,8 @@
                     <input type="text" style="display:none;" value="required">
                     <textarea
                       style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[45]" rows="1" id="str_45" placeholder="Иванов" maxlength="27"></textarea><span
-                      class="grine_bold_text">27</span>
+                      name="name_z[13]" rows="1" placeholder="Федотов" maxlength="34" required=""></textarea><span
+                      class="grine_bold_text">34</span>
                   </div>
 
 
@@ -1606,17 +722,17 @@
                 </div>
               </div>
 
-              <div align="center" id="div_46" style="display: none;">
+              <div align="center">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
 
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Имя:</div>
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Имя, отчество (при наличии):</div>
                   <div style="margin-left: 10px;">
                     <input type="text" style="display:none;" value="required">
                     <textarea
                       style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[46]" rows="1" id="str_46" placeholder="Иван" maxlength="27"></textarea><span
-                      class="grine_bold_text">27</span>
+                      name="name_z[14]" rows="1" placeholder="Степан Степанович" maxlength="34"
+                      required=""></textarea><span class="grine_bold_text">34</span>
                   </div>
 
 
@@ -1624,35 +740,14 @@
                 </div>
               </div>
 
-              <div align="center" id="div_47" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Отчество:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[47]" rows="1" id="str_47" placeholder="Иванович" maxlength="24"></textarea><span
-                      class="grine_bold_text">24</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_dokyment_yd_lichnost" style="display: none;">
+              <div align="center">
                 <div align="left"
                   style="display: block;border-radius: 5px 5px 5px 5px;margin-top: 7px;margin-bottom: 5px;background: #EDEDED; box-shadow: inset 0px 2px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
                   <h3 style="margin: 0px;" align="left">Документ, удостоверяющий личность</h3>
                 </div>
               </div>
 
-              <div align="center" id="div_48" style="display: none;">
+              <div align="center">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
 
@@ -1661,8 +756,8 @@
                     <input type="text" style="display:none;" value="required">
                     <textarea
                       style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[48]" rows="1" id="str_48" placeholder="Паспорт" maxlength="11"></textarea><span
-                      class="grine_bold_text">11</span>
+                      name="name_z[15]" rows="1" placeholder="Паспорт" maxlength="31" required=""></textarea><span
+                      class="grine_bold_text">31</span>
                   </div>
 
 
@@ -1670,11 +765,11 @@
                 </div>
               </div>
 
-              <div align="center" id="div_49" style="display: none;">
+              <div align="center">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
 
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Серия:</div>
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Серия: </div>
                   <div style="margin-left: 10px;">
                     <input type="text" style="display:none;" value="">
                     <textarea style="
@@ -1682,8 +777,8 @@
                 height: 15px;
                 padding-top: 3px;
                 padding-bottom: 1px;
-            " name="name_z[49]" rows="1" id="str_49" placeholder="1122" maxlength="4"></textarea><span
-                      class="grine_bold_text">4</span>
+            " name="name_z[16]" rows="1" placeholder="1212" maxlength="5"></textarea><span
+                      class="grine_bold_text">5</span>
                   </div>
 
 
@@ -1691,7 +786,7 @@
                 </div>
               </div>
 
-              <div align="center" id="div_50" style="display: none;">
+              <div align="center">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
 
@@ -1703,8 +798,8 @@
                 height: 15px;
                 padding-top: 3px;
                 padding-bottom: 1px;
-            " name="name_z[50]" rows="1" id="str_50" placeholder="111000" maxlength="11"></textarea><span
-                      class="grine_bold_text">11</span>
+            " name="name_z[17]" rows="1" placeholder="2222" maxlength="9"></textarea><span
+                      class="grine_bold_text">9</span>
                   </div>
 
 
@@ -1712,95 +807,55 @@
                 </div>
               </div>
 
-              <div align="center" id="div_51_52" style="display: none;">
+              <div align="center">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Дата выдачи и срок действия:</div>
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Дата выдачи</div>
                   <div style="margin-left: 10px;">
-                    Дата выдачи: <input type="text" style="display:none;" value="required"><input
-                      style="margin-left: 5px; margin-right: 5px; background: rgb(255, 214, 214);" type="date"
-                      name="name_z[51]" id="str_1_51_52" required=""> Срок действия до (при наличии): <input type="text"
-                      style="display:none;" value=""><input style="margin-left: 5px; margin-right: 5px"
-                      name="name_z[52]" type="date" id="str_2_51_52">
+                    <input type="text" style="display:none;" value=""><input name="name_z[18]" type="date" value="">
                   </div>
 
                 </div>
               </div>
 
-              <div align="center" id="div_mesto_zitelstva" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 5px 5px 5px 5px;margin-top: 7px;margin-bottom: 5px;background: #EDEDED; box-shadow: inset 0px 2px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <h3 style="margin: 0px;" align="left">Место жительства</h3>
-                </div>
-              </div>
-
-              <div align="center" id="div_53" style="display: none;">
+              <div align="center" id="div_20">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Область, край, республика, автономный округ
-                    (область):</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[53]" rows="1" id="str_53"
-                      placeholder="Если есть (Область, край, республика, АО), то указывается"
-                      maxlength="48"></textarea><span class="grine_bold_text">48</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_54" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Район:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[54]" rows="1" id="str_54" placeholder="Если есть (Район), то указывается"
-                      maxlength="25"></textarea><span class="grine_bold_text">25</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_55" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Город или другой населенный пункт:</div>
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Срок действия документа удостоверяющего
+                    личность :</div>
                   <div style="margin-left: 10px;">
                     <input type="text" style="display:none;" value="required">
-                    <textarea
-                      style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[55]" rows="1" id="str_55" placeholder="Москва" maxlength="23"></textarea><span
-                      class="grine_bold_text">23</span>
+                    <select name="name_z[20]" style="width: 620px; background: rgb(255, 214, 214);" id="str_20"
+                      required="">
+                      <option></option>
+                      <option value="1">Документ бессрочный</option>
+                      <option value="2">У документа есть срок действия</option>
+                    </select>
                   </div>
-
-
 
                 </div>
               </div>
 
-              <div align="center" id="div_56" style="display: none;">
+              <div align="center" id="div_19" style="display: none;">
+                <div align="left"
+                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Срок действия до:</div>
+                  <div style="margin-left: 10px;">
+                    <input type="text" style="display:none;" value="required"><input name="name_z[19]" type="date"
+                      value="" id="str_19" style="background: rgb(255, 214, 214);">
+                  </div>
+                  <div
+                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
+                    align="left">Если оставить поле пустым, информация об окончании срока действия не будет распечатана
+                  </div>
+                </div>
+              </div>
+
+              <div align="center">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
 
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Улица:</div>
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Телефон (при наличии):</div>
                   <div style="margin-left: 10px;">
                     <input type="text" style="display:none;" value="">
                     <textarea style="
@@ -1808,128 +863,18 @@
                 height: 15px;
                 padding-top: 3px;
                 padding-bottom: 1px;
-            " name="name_z[56]" rows="1" id="str_56" placeholder="Лесная" maxlength="25"></textarea><span
-                      class="grine_bold_text">25</span>
+            " name="name_z[21]" rows="1" placeholder="0000000000" maxlength="10"></textarea><span
+                      class="grine_bold_text">10</span>
                   </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_57" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Дом:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[57]" rows="1" id="str_57" placeholder="21" maxlength="4"></textarea><span
-                      class="grine_bold_text">4</span>
-                  </div>
-
+                  <div
+                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
+                    align="left">(без +7 и 8)</div>
 
 
                 </div>
               </div>
 
-              <div align="center" id="div_58" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Корпус:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[58]" rows="1" id="str_58" placeholder="1" maxlength="5"></textarea><span
-                      class="grine_bold_text">5</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_59" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Строение:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[59]" rows="1" id="str_59" placeholder="2" maxlength="4"></textarea><span
-                      class="grine_bold_text">4</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_60" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Квартира:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[60]" rows="1" id="str_60" placeholder="31" maxlength="4"></textarea><span
-                      class="grine_bold_text">4</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_61" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-
-                  <div style="width:620px; margin-bottom: 4px;" align="left">Телефон принимающей стороны:</div>
-                  <div style="margin-left: 10px;">
-                    <input type="text" style="display:none;" value="">
-                    <textarea style="
-                width:  620px;
-                height: 15px;
-                padding-top: 3px;
-                padding-bottom: 1px;
-            " name="name_z[61]" rows="1" id="str_61" placeholder="0000000000" maxlength="11"></textarea><span
-                      class="grine_bold_text">11</span>
-                  </div>
-
-
-
-                </div>
-              </div>
-
-              <div align="center" id="div_svedenia_ob_orginizasii" style="display: none;">
-                <div align="left"
-                  style="display: block;border-radius: 5px 5px 5px 5px;margin-top: 7px;margin-bottom: 5px;background: #EDEDED; box-shadow: inset 0px 2px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
-                  <h2 style="margin: 0px;" align="left">Сведения об организации</h2>
-                </div>
-              </div>
-
-              <div align="center" id="div_62" style="display: none;">
+              <div align="center" id="div_22" style="display: none;">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
 
@@ -1937,9 +882,9 @@
                   <div style="margin-left: 10px;">
                     <input type="text" style="display:none;" value="required">
                     <textarea
-                      style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[62]" rows="1" id="str_62" placeholder="ООО &quot;Жизнь Удалась&quot;"
-                      maxlength="42"></textarea><span class="grine_bold_text">42</span>
+                      style="width: 620px; height: 32px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
+                      name="name_z[22]" rows="2" id="str_22" placeholder="ООО &quot;Жизнь Удалась&quot;"
+                      maxlength="92"></textarea><span class="grine_bold_text">92</span>
                   </div>
 
 
@@ -1947,7 +892,7 @@
                 </div>
               </div>
 
-              <div align="center" id="div_63" style="display: none;">
+              <div align="center" id="div_23" style="display: none;">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
 
@@ -1959,8 +904,8 @@
                 height: 15px;
                 padding-top: 3px;
                 padding-bottom: 1px;
-            " name="name_z[63]" rows="1" id="str_63" placeholder="123123" maxlength="11"></textarea><span
-                      class="grine_bold_text">11</span>
+            " name="name_z[23]" rows="1" id="str_23" placeholder="123123" maxlength="12"></textarea><span
+                      class="grine_bold_text">12</span>
                   </div>
 
 
@@ -1968,7 +913,7 @@
                 </div>
               </div>
 
-              <div align="center" id="div_64" style="display: none;">
+              <div align="center" id="div_24" style="display: none;">
                 <div align="left"
                   style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
 
@@ -1976,14 +921,129 @@
                   <div style="margin-left: 10px;">
                     <input type="text" style="display:none;" value="required">
                     <textarea
-                      style="width: 620px; height: 32px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
-                      name="name_z[64]" rows="2" id="str_64"
-                      placeholder="Москва 1 лесной переулок дом 3 корпус 12 строение 31" maxlength="84"></textarea><span
-                      class="grine_bold_text">84</span>
+                      style="width: 620px; height: 15px; padding-top: 3px; padding-bottom: 1px; background: rgb(255, 214, 214);"
+                      name="name_z[24]" rows="1" id="str_24"
+                      placeholder="Москва 1 лесной переулок дом 3 корпус 12 строение 31" maxlength="72"></textarea><span
+                      class="grine_bold_text">72</span>
                   </div>
 
 
 
+                </div>
+              </div>
+
+              <div align="center" id="div_dok_organizasia" style="display: none;">
+                <div align="left"
+                  style="display: block;border-radius: 5px 5px 5px 5px;margin-top: 7px;margin-bottom: 5px;background: #EDEDED; box-shadow: inset 0px 2px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
+                  <h3 style="margin: 0px;" align="left">Документ, подтверждающий полномочия представителя организации
+                  </h3>
+                </div>
+              </div>
+
+              <div align="center" id="div_25" style="display: none;">
+                <div align="left"
+                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
+
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Вид документа:</div>
+                  <div style="margin-left: 10px;">
+                    <input type="text" style="display:none;" value="">
+                    <textarea style="
+                width:  620px;
+                height: 15px;
+                padding-top: 3px;
+                padding-bottom: 1px;
+            " name="name_z[25]" rows="1" id="str_25" placeholder="Доверенность" maxlength="46"></textarea><span
+                      class="grine_bold_text">46</span>
+                  </div>
+
+
+
+                </div>
+              </div>
+
+              <div align="center" id="div_26" style="display: none;">
+                <div align="left"
+                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
+
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Серия:</div>
+                  <div style="margin-left: 10px;">
+                    <input type="text" style="display:none;" value="">
+                    <textarea style="
+                width:  620px;
+                height: 15px;
+                padding-top: 3px;
+                padding-bottom: 1px;
+            " name="name_z[26]" rows="1" id="str_26" placeholder="Д" maxlength="5"></textarea><span
+                      class="grine_bold_text">5</span>
+                  </div>
+
+
+
+                </div>
+              </div>
+
+              <div align="center" id="div_27" style="display: none;">
+                <div align="left"
+                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
+
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Номер:</div>
+                  <div style="margin-left: 10px;">
+                    <input type="text" style="display:none;" value="">
+                    <textarea style="
+                width:  620px;
+                height: 15px;
+                padding-top: 3px;
+                padding-bottom: 1px;
+            " name="name_z[27]" rows="1" id="str_27" placeholder="12032020" maxlength="9"></textarea><span
+                      class="grine_bold_text">9</span>
+                  </div>
+
+
+
+                </div>
+              </div>
+
+              <div align="center" id="div_28" style="display: none;">
+                <div align="left"
+                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Дата выдачи:</div>
+                  <div style="margin-left: 10px;">
+                    <input type="text" style="display:none;" value=""><input name="name_z[28]" type="date" value=""
+                      id="str_28">
+                  </div>
+
+                </div>
+              </div>
+
+              <div align="center" id="div_30" style="display: none;">
+                <div align="left"
+                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Срок действия документа, подтверждающего
+                    полномочия представителя организации:</div>
+                  <div style="margin-left: 10px;">
+                    <input type="text" style="display:none;" value="required">
+                    <select name="name_z[30]" style="width: 620px; background: rgb(255, 214, 214);" id="str_30">
+                      <option></option>
+                      <option value="1">Документ бессрочный</option>
+                      <option value="2">У документа есть срок действия</option>
+                    </select>
+                  </div>
+
+                </div>
+              </div>
+
+              <div align="center" id="div_29" style="display: none;">
+                <div align="left"
+                  style="display: block;border-radius: 0px 0px 5px 5px;margin-top: 7px;margin-bottom: 20px;background: #EDEDED;box-shadow: 0 5px 0 rgba(0,0,0,.3);padding: 10px; width:  669.6px;">
+                  <div style="width:620px; margin-bottom: 4px;" align="left">Срок действия до:</div>
+                  <div style="margin-left: 10px;">
+                    <input type="text" style="display:none;" value="required"><input name="name_z[29]" type="date"
+                      value="" id="str_29" style="background: rgb(255, 214, 214);">
+                  </div>
+                  <div
+                    style="width:558px; margin-left: 25px; padding-left: 8px; border-left: 4px solid #D65600; margin-top: 4px;"
+                    align="left">Если оставить поле пустым, информация об окончании срока действия не будет распечатана
+                  </div>
                 </div>
               </div>
 
@@ -2001,6 +1061,7 @@
                     style=" padding-top: 7px; padding-bottom: 7px;  box-shadow: 0px 0px 0 1px rgba(53,121,53,.3); padding-right: 10px;border-radius: 7px;">
                     <tbody>
                       <tr>
+
                         <td width="330px" align="left">
                           <span class="grine_bold_text" style="font-size: 14px;">Проверка обязательных полей
                             включена</span>
@@ -2043,7 +1104,7 @@
                     <div class="macke_1_form_button_ypravlenia" id="div_buttom_js_1">
                       <div
                         style="font-size: 15px;  display:block; height: 22px;  line-height: 22px; margin-right: 33px;">
-                        Сгенерировать</div>
+                        Распечатать</div>
                     </div>
                   </div>
                 </div>
@@ -2054,5 +1115,8 @@
       </tr>
     </tbody>
   </table>
+  <div align="center" class="don_t_print" style="padding-top:45px;padding-bottom:45px;"><br></div>
 </body>
+<app-content ng-version="13.2.0"></app-content>
+
 </html>
