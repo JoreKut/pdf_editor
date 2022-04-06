@@ -15,21 +15,9 @@ def get_rects(page_path):
         rect = cv.minAreaRect(cnt)  # пытаемся вписать прямоугольник
         x = rect[1][0]
         y = rect[1][1]
-        box = cv.boxPoints(rect)  # поиск четырех вершин прямоугольника
-        box = np.int0(box)  # округление координат
 
-        '''
-            if rect[2] == 90 and 25 < min(x,y) < 45:
-        '''
-        if rect[2] == 90 and 20 < min(x,y) < 55:
+        if rect[2] == 90 and 24 < min(x,y) < 55:
             desired_rectangles.append(rect)
-            cv.drawContours(img, [box], 0, (255, 0, 0), 2)  # рисуем прямоугольник
-
-    i = cv.resize(img, (0, 0), fx=0.4, fy=0.4)
-    cv.imshow('contours', i)  # вывод обработанного кадра в окно
-    cv.waitKey()
-    cv.destroyAllWindows()
-    cv.imwrite('output.jpg', img)
 
     desired_rectangles.reverse()
     return desired_rectangles
