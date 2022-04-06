@@ -3,14 +3,12 @@ import util.date_parser as date_parser
 from util.cell_writer import CellWritter
 
 
-
 def make_document_1_pdf(data: dict):
-    
     img_name_1 = '../pattern/uvedomlenie_o_pribitie/1.png'
     img_name_2 = '../pattern/uvedomlenie_o_pribitie/2.png'
     img_name_3 = '../pattern/uvedomlenie_o_pribitie/3.png'
     img_name_4 = '../pattern/uvedomlenie_o_pribitie/4.png'
-    
+
     page1 = CellWritter(img_name_1)
     page2 = CellWritter(img_name_2)
     page3 = CellWritter(img_name_3)
@@ -29,7 +27,7 @@ def make_document_1_pdf(data: dict):
 
     gender = data["name_z[6]"]
     try:
-        page1.write_text_in_cell('V', 110+int(gender))
+        page1.write_text_in_cell('V', 110 + int(gender))
     except:
         pass
     # Место рождения
@@ -45,7 +43,7 @@ def make_document_1_pdf(data: dict):
     start_date = date_parser.parse(data["name_z[11]"])
     # Действует до
     end_date = date_parser.parse(data["name_z[12]"])
-    page1.write_text(start_date+end_date, 210, 225)
+    page1.write_text(start_date + end_date, 210, 225)
 
     # Вид документа на пребыванеие в РФ
     doc_type = data["name_z[13]"]
@@ -85,7 +83,7 @@ def make_document_1_pdf(data: dict):
     start_date = date_parser.parse(data["name_z[21]"])
     # Пребывание ДО
     end_date = date_parser.parse(data["name_z[22]"])
-    period = start_date+end_date
+    period = start_date + end_date
     page1.write_text(period, 309, 324)
 
     # Миграционная карта
@@ -131,7 +129,7 @@ def make_document_1_pdf(data: dict):
     # Место пребывания
     place_val = data["name_z[37]"]
     try:
-        page2.write_text_in_cell("V", 248+int(place_val))
+        page2.write_text_in_cell("V", 248 + int(place_val))
     except:
         pass
     # Место ФАКТИЧЕСКОГО нахождения
@@ -174,7 +172,7 @@ def make_document_1_pdf(data: dict):
     start_date = data["name_z[51]"]
     # Действует до
     end_date = data["name_z[52]"]
-    page3.write_text(start_date+end_date, 104, 119)
+    page3.write_text(start_date + end_date, 104, 119)
 
     # Область, край, ...
     page3.write_text(data["name_z[53]"], 120, 167)
@@ -286,7 +284,7 @@ def make_document_1_pdf(data: dict):
     image_list = [im_2, im_3, im_4]
     pdf_files = glob.glob('../back/static/output/*.pdf')
     file_number = len(pdf_files)
-    name = rf'uvedomlenie_o_pribitie_result_{file_number}.pdf'
+    name = rf'uvedomlenie_o_pribitie_result_{file_number + 1}.pdf'
     im_1.save(rf'../back/static/output/{name}', save_all=True, append_images=image_list)
 
     return name
