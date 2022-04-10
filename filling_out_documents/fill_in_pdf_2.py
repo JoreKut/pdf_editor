@@ -67,7 +67,7 @@ def make_document_2_pdf(data: dict):
     page1.write_text(type_of_document, 297, 327)
     page1.write_text(series, 328, 332)
     page1.write_text(doc_number, 333, 341)
-    page1.write_text(date_of_receipt, 342, 249)
+    page1.write_text(date_of_receipt, 342, 349)
     page1.write_text(validity_period, 350, 357)
     page1.write_text(phone_number, 368, 377)
     page1.write_text(last_name, 378, 407)

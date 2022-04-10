@@ -169,9 +169,10 @@ def make_document_1_pdf(data: dict):
     page3.write_text(data["name_z[50]"], 93, 103)
 
     # Дата выдачи
-    start_date = data["name_z[51]"]
+
+    start_date = date_parser.parse(data["name_z[51]"])
     # Действует до
-    end_date = data["name_z[52]"]
+    end_date = date_parser.parse(data["name_z[52]"])
     page3.write_text(start_date + end_date, 104, 119)
 
     # Область, край, ...
