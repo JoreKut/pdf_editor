@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from flask import request
-from filling_out_documents.fill_in_pdf_1 import make_document_1_pdf
-from filling_out_documents.fill_in_pdf_2 import make_document_2_pdf
+from static.filling_out_documents.fill_in_pdf_1 import make_document_1_pdf
+from static.filling_out_documents.fill_in_pdf_2 import make_document_2_pdf
 import os
 
 app = Flask(__name__)

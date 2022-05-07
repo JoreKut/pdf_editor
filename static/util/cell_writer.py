@@ -1,6 +1,6 @@
 from PIL import ImageDraw, Image
-from util.SETTING import *
-import util.rect_getter as rect_getter
+from static.util.SETTING import *
+import static.util.rect_getter as rect_getter
 
 
 class CellWritter:

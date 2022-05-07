@@ -1,5 +1,5 @@
 import cv2 as cv
-from util.SETTING import *
+from static.util.SETTING import *
 
 
 def get_rects(page_path):

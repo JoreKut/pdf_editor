@@ -1,13 +1,14 @@
 import glob
-import util.date_parser as date_parser
-from util.cell_writer import CellWritter
+import static.util.date_parser as date_parser
+from static.util.cell_writer import CellWritter
 
 
 def make_document_1_pdf(data: dict):
-    img_name_1 = '../pattern/uvedomlenie_o_pribitie/1.png'
-    img_name_2 = '../pattern/uvedomlenie_o_pribitie/2.png'
-    img_name_3 = '../pattern/uvedomlenie_o_pribitie/3.png'
-    img_name_4 = '../pattern/uvedomlenie_o_pribitie/4.png'
+    img_name_1 = 'static/pattern/uvedomlenie_o_pribitie/1.png'
+    img_name_2 = 'static/pattern/uvedomlenie_o_pribitie/2.png'
+    img_name_3 = 'static/pattern/uvedomlenie_o_pribitie/3.png'
+    img_name_4 = 'static/pattern/uvedomlenie_o_pribitie/4.png'
+
 
     page1 = CellWritter(img_name_1)
     page2 = CellWritter(img_name_2)
@@ -283,9 +284,9 @@ def make_document_1_pdf(data: dict):
     im_4 = page4.img.convert('RGB')
 
     image_list = [im_2, im_3, im_4]
-    pdf_files = glob.glob('../back/static/output/*.pdf')
+    pdf_files = glob.glob('static/output/*.pdf')
     file_number = len(pdf_files)
     name = rf'uvedomlenie_o_pribitie_result_{file_number + 1}.pdf'
-    im_1.save(rf'../back/static/output/{name}', save_all=True, append_images=image_list)
+    im_1.save(rf'static/output/{name}', save_all=True, append_images=image_list)
 
     return name

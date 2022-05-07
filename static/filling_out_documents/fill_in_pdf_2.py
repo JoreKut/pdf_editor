@@ -1,11 +1,11 @@
-from util.cell_writer import CellWritter
-from util import date_parser
+from static.util.cell_writer import CellWritter
+from static.util import date_parser
 import glob
 
 
 def make_document_2_pdf(data: dict):
-    img_name_1 = '../pattern/uvedomlenie_ubitie/1.png'
-    img_name_2 = '../pattern/uvedomlenie_ubitie/2.png'
+    img_name_1 = 'static/pattern/uvedomlenie_ubitie/1.png'
+    img_name_2 = 'static/pattern/uvedomlenie_ubitie/2.png'
 
     page1 = CellWritter(img_name_1)
     page2 = CellWritter(img_name_2)
@@ -89,9 +89,9 @@ def make_document_2_pdf(data: dict):
     im_2 = page2.img.convert('RGB')
 
     image_list = [im_2]
-    pdf_files = glob.glob('../back/static/output/*.pdf')
+    pdf_files = glob.glob('static/output/*.pdf')
     file_number = len(pdf_files)
     name = rf'uvedomlenie_ubitie_result_{file_number + 1}.pdf'
-    im_1.save(rf'../back/static/output/{name}', save_all=True, append_images=image_list)
+    im_1.save(rf'static/output/{name}', save_all=True, append_images=image_list)
 
     return name
